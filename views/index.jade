@@ -1,0 +1,16 @@
+extends layout
+block link
+    link(rel='stylesheet', href='/css/article-list.css')
+block content
+  h1= title
+  p Welcome to #{title}
+  p That's a simple application using Express.
+  a(href='/logout') logout
+  hr
+  article(class="ar-list")
+      each article,index in articles
+          dl
+              dt #{article.name}
+                p #{article.user.name}
+                    span #{article.date}
+              dd!=md(article.content)

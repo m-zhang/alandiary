@@ -1,0 +1,15 @@
+extends layout
+
+block content
+  h1= title
+  hr
+  form(class="form-signin" method="post" action="/login")
+      div(class="form-group")
+          input(name="email" type="email" class="form-control" placeholder="Email address" required autofocus)
+      div(class="form-group")
+          input(name="password" type="password" class="form-control" placeholder="Password" required)
+      div(class="checkbox")
+        label
+            input(type="checkbox")
+            | Remember me
+      button(class="btn btn-lg btn-primary btn-block" type="submit") login

@@ -1,0 +1,31 @@
+extends ../layout
+
+block content
+    h1= title
+    hr
+    p That's a simple application using Express.
+    p(class="bg-success" style="padding:10px;") 当前用户：#{user.name}
+        span(style="margin-left:10px;margin-right:20px;") 注册时间 &nbsp;&nbsp;#{user.date}
+        a(href='/logout') logout
+    form(role="form" method="post" action="/admin/article/add")
+        input(type="hidden" name="user" value="#{user.id}")
+        div(class="form-group")
+            input(name="name" type="text" class="form-control" placeholder="文章标题")
+        a(href="#") #Img#
+        div(class="form-group")
+            textarea(name="content" class="form-control" rows="10" placeholder="内容")
+        button(type="submit" class="btn btn-info") 发布
+    table(class="table table-striped")
+        tr
+            th 序号
+            th 标题
+            th 创建时间
+            th 操作
+        each val,index in articles
+            tr
+                td #{index+1}
+                td #{val.name}
+                td #{val.date}
+                td
+                    form( method="post" action="/admin/article/#{val.id}?_method=DELETE" )
+                        button(type="submit" class="btn btn-default") Delete

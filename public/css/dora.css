@@ -1,0 +1,330 @@
+/*全局*/
+body {
+    font-family: "Microsoft Yahei", "΢���ź�";
+}
+
+
+
+/*按钮*/
+.dora-btn {
+    -moz-user-select: none;
+    background-image: none;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    cursor: pointer;
+    display: inline-block;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1.42857;
+    margin-bottom: 0;
+    padding: 6px 12px;
+    text-align: center;
+    vertical-align: middle;
+    white-space: nowrap;
+}
+
+.btn-default {
+    background-color: #fff;
+    border-color: #ccc;
+    color: #333;
+}
+
+.btn-default:hover {
+    color: #333;
+    background-color: #e6e6e6;
+    border-color: #adadad;
+}
+
+.btn-primary {
+    background-color: #337ab7;
+    border-color: #2e6da4;
+    color: #fff;
+}
+
+.btn-primary:hover {
+    color: #fff;
+    background-color: #286090;
+    border-color: #204d74;
+}
+
+/*遮罩*/
+.doraui_mask {
+    position: fixed;
+    z-index: 1;
+    top: -20em;
+    left: 0;
+    bottom: -20em;
+    right: 0;
+    background: rgba(0, 0, 0, 0.5);
+}
+
+/*弹窗容器*/
+.block {
+    width: 90%;
+    margin: 0 auto;
+    position: fixed;
+}
+
+.block-content {
+    width: 88%;
+    display: none;
+    padding: 6%;
+    text-align: center;
+    background: #fff;
+    border-radius: 0.5em;
+}
+
+.block-content h3 {
+    font-size: 1.2em;
+    color: #3d3d3d;
+    line-height: 1.4em;
+    text-align: center;
+    width: 100%;
+    font-weight: normal;
+    margin-bottom: 1em;
+}
+
+.block-content p {
+    color: #7e7e7e;
+    line-height: 1.4em;
+    text-align: left;
+    width: 100%;
+    margin: 1em 0;
+}
+
+.block-footer {
+    margin-top: 1em;
+}
+
+/*tips操作提示*/
+.tips {
+    background: #4c4c4c;
+    opacity: 0.5;
+    color: #FFFFFF;
+    width: 15em;
+    margin: 0 auto;
+    position: fixed;
+}
+
+.tips .tips-content {
+    padding: 1.8em 1em;
+    text-align: center;
+}
+
+.tips-content .icon-check-right {
+    color: #5cb85c;
+}
+
+.tips-content .icon-notice-down {
+    color: #eea236;
+}
+
+.tips-content .icon-notice-up {
+    color: #5bc0de;
+}
+
+.tips-content .icon-notice-triangle {
+    color: #ff0000;
+}
+
+.tips-content i {
+    color: #FFFFFF;
+    font-size: 1.2em;
+}
+
+.tips .tips-content .tips-info {
+    font-size: 1em;
+}
+
+/*轮播�?*/
+.slider {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+}
+
+.slider ul {
+    margin: 0;
+    padding: 0;
+    position: absolute;
+}
+
+.slider ul li {
+    list-style-type: none;
+    float: left;
+    font-size: 0;
+}
+
+.slider ul li img {
+    width: 100%;
+}
+
+.slider .focus {
+    margin-bottom: 0.3em;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    text-align: center;
+}
+
+.slider .focus > div {
+}
+
+.slider .focus > div span {
+    border-radius: 50%;
+    background-color: #aaaaaa;
+    width: 0.5em;
+    height: 0.5em;
+    margin-right: 0.2em;
+    cursor: pointer;
+    display: inline-block;
+}
+
+.slider .focus > div span.current {
+    background-color: #ffffff
+}
+
+.alert-block {
+    width: 75%;
+    position: fixed;
+    border-radius: 6px;
+    background: #ffffff;
+    transform: scale(0);
+    /*transform-origin: 100% 70% 0;*/
+    transition: transform 0.3s ease 0s, opacity 0.3s ease 0s;
+    opacity: 0;
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
+}
+
+.alert-block.show-layer {
+    opacity: 1;
+    transform: scale(1);
+}
+
+.alert-block .alert-body {
+    padding: 0em 1em;
+    max-height: 8em;
+    background: #FFFFFF;
+    overflow: scroll;
+    margin: 0.5em 0;
+}
+
+.alert-block .alert-title {
+    text-align: left;
+    padding: 0.6em 1em;
+    font-weight: normal;
+    border-bottom: 1px solid #EBEBEB;
+    margin: 0;
+    font-size: 1em;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+.alert-block .alert-footer {
+    position: relative;
+    padding: 0em 1em;
+    text-align: center;
+    border-top: 1px solid #EBEBEB;
+    background: #FFFFFF;
+    -moz-border-radius-bottomleft: 6px;
+    -webkit-border-bottom-left-radius: 6px;
+    -moz-border-radius-bottomright: 6px;
+    -webkit-border-bottom-right-radius: 6px;
+}
+
+.alert-block .alert-footer li:nth-child(2):before {
+    content: '\20';
+    position: absolute;
+    width: 1px;
+    height: 100%;
+    left: 0;
+    top: 0;
+    background-color: #EBEBEB;
+}
+
+.averagebox {
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    -webkit-flex-flow: wrap;
+    justify-content: space-around;
+}
+
+.alert-block .alert-footer ul {
+    margin: 0;
+    padding: 0
+}
+
+.alert-block .alert-footer ul li {
+    position: relative;
+    text-align: center;
+    font-size: 1em;
+    cursor: pointer;
+    padding: 0.6em 0;
+    -webkit-box-flex: 1;
+    -moz-box-flex: 1;
+    -ms-box-flex: 1;
+    text-align: center;
+    list-style-type: none;
+}
+
+.alert-block .icon-close {
+    font-size: 1.2em;
+    color: #999999;
+    position: absolute;
+    right: 0.4em;
+    top: 0.5em;
+}
+
+.alert-tip {
+    position: fixed;
+    background: #FFFFFF;
+    opacity: 1;
+    width: 70%;
+    transform: scale(0);
+    transition: transform 0.3s ease 0s, opacity 0.3s ease 0s;
+    border-radius: 6px;
+}
+
+.alert-tip p {
+    padding: 0.1em 1em;
+    text-align: center;
+    font-size: 1em;
+}
+
+.alert-tip.show-layer {
+    opacity: 1;
+    transform: scale(1);
+}
+
+.alert-loading {
+    min-height: 90px;
+    width: 30%;
+    position: fixed;
+    background: rgba(0, 0, 0, .5);
+    z-index: 19870428;
+    text-align: center;
+    -moz-border-radius: 10px;
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+    padding: 5px;
+}
+
+.alert-loading p {
+    color: #FFFFFF;
+    margin: 0.5em 0 0;
+    font-size: 0.8em;
+}
+
+.alert-loading .loading-icon {
+    width: 3em;
+    height: 3em;
+    margin: 0 auto;
+    background: url("../images/ajaxLoading.gif");
+    background-size: 3em 3em;
+    margin-top: 0.4em;
+}
+
