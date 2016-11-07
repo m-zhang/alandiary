@@ -4,7 +4,6 @@ var router = express.Router();
 var async=require('async');
 var component=require('../../common');
 var md = require('marked');
-
 var User=mongoose.model('users');
 var Article=mongoose.model('articles');
 
@@ -26,6 +25,11 @@ router.get('/', function(req, res, next) {
         }else{
             res.render('index', { title: 'Express',articles:results.getArticles,md:md});
         }
+    });
+});
+router.get('/article/:id', function(req, res, next) {
+    Article.findOne({_id:req.params.id},function(err,article){
+        res.render("article",{article:article,md:md});
     });
 });
 router.get('/login',function(req,res){

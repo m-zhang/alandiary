@@ -88,6 +88,7 @@ router.post('/article/add',function(req,res){
     var params={
         name:req.body.name,
         user:req.body.user,
+        brief:req.body.brief,
         content:req.body.content,
         date:commonLib.now()
     }
@@ -113,6 +114,34 @@ router.delete('/article/:id',function(req,res){
         }
     });
 });
+router.get('/article/:id',function(req,res){
+    var params={
+        "_id":req.params.id
+        };
+    Article.findOne(params,function(err,article){
+        if(err){
+            console.log(err);
+        }else{
+            console.log(article);
+            res.render("admin/article-edit",{article:article});
+        }
 
+    });
+
+
+});
+
+router.put('/article/:id',function(req,res){
+    var params={
+        "_id":req.params.id
+    },update={brief:req.body.brief,content:req.body.content},options={new:true};
+    Article.findOneAndUpdate(params,update,options,function(err,article) {
+        if(err){
+            console.log(err);
+        }else{
+            res.redirect("/admin");
+        }
+    });
+});
 
 module.exports = router;

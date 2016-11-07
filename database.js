@@ -17,6 +17,7 @@ var File=new Schema({
 var Article=new Schema({
     name:String,
     user:{ type: Schema.Types.ObjectId, ref: 'users'},
+    brief:String,
     content:String,
     date:String
 });

@@ -10,7 +10,9 @@ block content
   article(class="ar-list")
       each article,index in articles
           dl
-              dt #{article.name}
+              dt
+                a(href="/article/#{article.id}") #{article.name}
+
                 p #{article.user.name}
                     span #{article.date}
-              dd!=md(article.content)
+              dd!=md(article.brief)
