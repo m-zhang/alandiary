@@ -1,7 +1,10 @@
+body {
+  padding-bottom: 100px;
+}
 .ar-list dl {
   padding: 20px 10px;
   margin-bottom: 20px;
-  background-color: #f1f1f1;
+  background-color: #EDEDED;
   font-weight: normal;
 }
 .ar-list dl dt {
