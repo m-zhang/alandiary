@@ -25,5 +25,9 @@ var Article=new Schema({
 mongoose.model('files',File);
 mongoose.model('users',User);
 mongoose.model('articles',Article);
-
-mongoose.connect('mongodb://localhost/ad-db');
+var options = {
+    user: 'zhangming',
+    pass: 'XIAmi08@'
+}
+//mongoose.connect(uri, options);
+mongoose.connect('mongodb://@ds119728.mlab.com:19728/my-diary',options);

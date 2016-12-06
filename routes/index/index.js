@@ -42,7 +42,7 @@ router.get('/login',function(req,res){
 });
 router.post('/login',function(req,res){
     if(req.body.email&&req.body.password){
-        User.findOne({email:req.body.email,password:req.body.password},function(err,user){
+        User.findOne({ email: req.body.email,password:req.body.password},function(err,user){
             if(err){
                 console.log(err);
             }else{
@@ -53,10 +53,8 @@ router.post('/login',function(req,res){
                 }else{
                     res.redirect("/login");
                 }
-
             }
         });
-
     }else{
         res.redirect("/login");
     }
