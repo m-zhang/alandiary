@@ -1,0 +1,124 @@
+body {
+  background: url("/images/temp/bg_grey.png") repeat;
+}
+.wrap {
+  background-color: #fff;
+  padding-bottom: 120px;
+}
+.logo-text,
+.logo-text:hover,
+.logo-text:focus {
+  color: #7ACCB5;
+  text-decoration: none;
+}
+.main-banner {
+  text-align: center;
+}
+.simple-block {
+  display: inline-block;
+  padding: 3em;
+}
+/*默认pc 显示10*/
+.img-gallery {
+  padding-left: 0px;
+}
+.img-gallery li {
+  float: left;
+  list-style: none;
+}
+.my-label {
+  text-align: center;
+  color: #d7d7d7;
+  font-size: 16px;
+  margin-top: 30px;
+}
+.my-label span {
+  margin: 10px;
+}
+.my-label span:nth-child(odd) {
+  font-size: 20px;
+}
+.my-label span:nth-child(2n+1) {
+  color: #ACEDE9;
+}
+.my-label span:nth-child(3n+1) {
+  color: #333;
+}
+.my-label p {
+  margin: 20px 0px;
+}
+.page-nav {
+  margin-top: 30px;
+  text-align: center;
+}
+.page-nav > div {
+  display: inline-block;
+  margin-right: 10px;
+  width: 10px;
+  height: 10px;
+  background: #f1f1f1;
+  cursor: pointer;
+}
+.page-nav > div.active {
+  width: 20px;
+  height: 20px;
+  background: #9bc4d6;
+}
+.travel-diary,
+.my-label-block,
+.my-group {
+  margin: 20px 0px;
+}
+.travel-diary .separate-line {
+  text-align: right;
+}
+.my-label-block .separate-line {
+  text-align: left;
+}
+/*group team*/
+.group-block {
+  margin-top: 10px;
+  background: none;
+  border: 0px;
+  border-bottom: 1px solid #fff;
+}
+.group-block .caption {
+  text-align: center;
+  color: #ACEDE9;
+}
+/*common css share*/
+.separate-line {
+  position: relative;
+  margin-bottom: 10px;
+  text-align: center;
+}
+.separate-line.tl {
+  text-align: left;
+}
+.separate-line > div {
+  position: absolute;
+  width: 100%;
+  height: 1px;
+  background-color: #ddd;
+  margin-top: 10px;
+}
+.separate-line .label-text {
+  position: relative;
+  padding: 0 40px;
+  background-color: #fff;
+  z-index: 2;
+  font-size: 16px;
+  color: #9cd3b3;
+}
+.b-grey {
+  background-color: #f1f1f1;
+}
+.site-intro p {
+  font-size: 16px;
+  line-height: 30px;
+  padding: 20px;
+}
+/*内容页面css 样式*/
+.content-wrap {
+  padding-top: 120px;
+}
