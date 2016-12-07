@@ -1,18 +1,148 @@
 extends layout
 block link
-    link(rel='stylesheet', href='/css/article-list.css')
-block content
-  h1= title
-  p Welcome to #{title}
-  p That's a simple application using Express.
-  a(href='/logout') logout
-  hr
-  article(class="ar-list")
-      each article,index in articles
-          dl
-              dt
-                a(href="/article/#{article.id}") #{article.name}
+    link(rel='stylesheet', href='/css/home.css')
+    link(rel='stylesheet', href='/js/jvector/jquery-jvectormap-2.0.2.css')
+    link(rel='stylesheet', href='http://www.jqueryscript.net/demo/jQuery-Plugin-For-Justified-Image-Gallery-Justified-Gallery/css/jquery.justifiedgallery.min.css')
 
-                p #{article.user.name}
-                    span #{article.date}
-              dd!=md(article.brief)
+block content
+  div(class="container wrap")
+      div(class="row")
+          div(class="col-xs-12")
+              h2
+                  a(class="logo-text" href="##")
+              header(class="main-banner")
+                  div(class="simple-block")
+                      img(src="/images/temp/010.jpg" class="img-circle")
+                      h2 Alan
+      section(class="travel-light")
+          div(class="separate-line")
+              div
+              span(class="label-text") 旅行，寻找自我的一种方式
+          div(class="gallery")
+              a(href="##" title="")
+                  img(src="http://www.jqueryscript.net/demo/jQuery-Plugin-For-Justified-Image-Gallery-Justified-Gallery/example/photos/7002395006_29fdc85f7a_m.jpg" alt="")
+              a(href="##" title="")
+                  img(src="http://www.jqueryscript.net/demo/jQuery-Plugin-For-Justified-Image-Gallery-Justified-Gallery/example/photos/7002395006_29fdc85f7a_m.jpg" alt="")
+              a(href="tupian-con.jpg" title="")
+                  img(src="/images/temp/tupian-content04.jpg" alt="")
+              a(href="tupian-con.jpg" title="")
+                  img(src="/images/temp/tupian-content05.jpg" alt="")
+              a(href="tupian-con.jpg" title="")
+                  img(src="/images/temp/tupian-content08.jpg" alt="")
+              a(href="tupian-con.jpg" title="")
+                  img(src="/images/temp/tupian-content09.jpg" alt="")
+              a(href="tupian-con.jpg" title="")
+                  img(src="/images/temp/tupian-content02.jpg" alt="")
+              a(href="tupian-con.jpg" title="")
+                  img(src="/images/temp/tupian-content01.jpg" alt="")
+              a(href="tupian-con.jpg" title="")
+                  img(src="/images/temp/tupian-content06.jpg" alt="")
+              a(href="tupian-con.jpg" title="")
+                  img(src="/images/temp/tupian-content08.jpg" alt="")
+      section(class="travel-diary")
+          div(class="separate-line")
+              div
+              span(class="label-text")  旅行日记
+          div(class="row")
+              div(class="col-md-6")
+                  div(id="world-map" style="width: 100%; height: 400px;")
+              div(class="col-md-6")
+                  div(class="media")
+                      a(class="media-left" href="#")
+                          img(class="media-object" src="/images/temp/tupian-content02.jpg" alt="..." style="max-width: 160px;")
+                      div(class="media-body")
+                          p 阿里巴巴从成立以来一直备受质疑，从8年前我做阿里巴巴的时候一路被骂过来，
+                            | 都说这个东西不可能。不过没关系，我不怕骂，在中国反正别人也骂不过我。
+                          p(class="article_mark" style="font-size:12px;color:#d7d7d7;line-height:20px;")
+                              span 于2015-01-06 22时发布 by 张明
+                  div(class="media")
+                      a(class="media-left" href="#")
+                          img(class="media-object" src="/images/temp/tupian-content02.jpg" alt="..." style="max-width: 160px;")
+                      div(class="media-body")
+                          p 阿里巴巴从成立以来一直备受质疑，从8年前我做阿里巴巴的时候一路被骂过来，
+                              | 都说这个东西不可能。不过没关系，我不怕骂，在中国反正别人也骂不过我。
+                          p(class="article_mark" style="font-size:12px;color:#d7d7d7;line-height:20px;")
+                              span 于2015-01-06 22时发布 by 张明
+                  div(class="media")
+                      a(class="media-left" href="#")
+                          img(class="media-object" src="/images/temp/tupian-content02.jpg" alt="..." style="max-width: 160px;")
+                      div(class="media-body")
+                          p 阿里巴巴从成立以来一直备受质疑，从8年前我做阿里巴巴的时候一路被骂过来，
+                              | 都说这个东西不可能。不过没关系，我不怕骂，在中国反正别人也骂不过我。
+                          p(class="article_mark" style="font-size:12px;color:#d7d7d7;line-height:20px;")
+                              span 于2015-01-06 22时发布 by 张明
+                  div(class="page-nav clearfix")
+                      div(class="active")
+                      div
+                      div
+      section(class="my-label-block")
+          div(class="separate-line")
+              div
+              span(class="label-text") 我的标签
+          div(class="my-label")
+              span 白羊座
+              span 前端工程师
+              span 技术宅男
+              span 会做饭
+              span 简单任性
+              span 东北人
+              span 开朗
+              span 阳光
+              span 安静
+              p so perfect,想想都有点小激动呢
+      section(class="my-group")
+          div(class="separate-line")
+              div
+              span(class="label-text")  6+1小分队
+          div(class="row b-grey")
+              div(class="col-sm-6 col-md-2")
+                  div(class="thumbnail group-block")
+                      img(src="/images/temp/010.jpg" alt="..." class="img-circle")
+                      div(class="caption")
+                          h3 Rosa
+                          p 交互、视觉设计师
+              div(class="col-sm-6 col-md-2")
+                  div(class="thumbnail group-block")
+                      img(src="/images/temp/010.jpg" alt="..." class="img-circle")
+                      div(class="caption")
+                          h3 Rosa
+                          p 交互、视觉设计师
+              div(class="col-sm-6 col-md-2")
+                  div(class="thumbnail group-block")
+                      img(src="/images/temp/010.jpg" alt="..." class="img-circle")
+                      div(class="caption")
+                          h3 Rosa
+                          p 交互、视觉设计师
+              div(class="col-sm-6 col-md-2")
+                  div(class="thumbnail group-block")
+                      img(src="/images/temp/010.jpg" alt="..." class="img-circle")
+                      div(class="caption")
+                          h3 Rosa
+                          p 交互、视觉设计师
+              div(class="col-sm-6 col-md-2")
+                  div(class="thumbnail group-block")
+                      img(src="/images/temp/010.jpg" alt="..." class="img-circle")
+                      div(class="caption")
+                          h3 Rosa
+                          p 交互、视觉设计师
+              div(class="col-sm-6 col-md-2")
+                  div(class="thumbnail group-block")
+                      img(src="/images/temp/010.jpg" alt="..." class="img-circle")
+                      div(class="caption")
+                          h3 Rosa
+                          p 交互、视觉设计师
+      section(class="site-intro")
+          div(class="separate-line tl")
+              div
+              span(class="label-text") 小站简介
+          p Alan Dairy: 突发奇想网站被命名为"Alan Dairy",没有理由，也许只是喜欢 alan这个名字。设计之初只是想简单记录每天的生活状态，do something different，
+              | 后续会定制社交类型的网站。整个技术层面采用的node+express+bootstrap，每行的代码都是自己手动敲上去的，
+              | node接触时间虽然不短，但整个开发还是要从头学，以后的博文中会提到整个网站的行程及每天我的一个工作状态.
+              | 现在时间 2015年3月7日 21:49，好吧，我困了，要去睡了
+
+block script
+    script(type="text/javascript" src="/js/jvector/jquery-jvectormap-2.0.2.min.js")
+    script(type="text/javascript" src="/js/jvector/jquery-jvectormap-cn-mill-en.js")
+    script(type="text/javascript" src="/js/jquery.justifyGallery.min.js")
+    script(type="text/javascript" src="/js/script.js")
+

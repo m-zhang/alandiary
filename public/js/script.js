@@ -1,5 +1,5 @@
 /* public script.js */
-
+/*
 window.onload=function(){
     var tObj=document.getElementById("area");
     tObj.addEventListener('keydown',function(e){
@@ -20,6 +20,22 @@ window.onload=function(){
 
         }
     });
-}
+}*/
+$(function(){
+    $('#world-map').vectorMap({
+        map: 'cn_mill_en',
+        backgroundColor:"#9bc4d6"
+    });
+    $('.gallery').justifyGallery({
+        'maxRowHeight': '100px',
+        'spacing': 2,
+        'resizeCSS': {'min-width': '0',
+            'min-height': '0',
+            'height': 'auto',
+            'width': 'auto',
+            'max-width': '200px',
+            'max-height': 'none'}
+    });
 
+});
 

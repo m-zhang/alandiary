@@ -39,6 +39,7 @@ router.get('/login',function(req,res){
     }else{
         res.render('login',{title:'欢迎登陆'});
     }
+
 });
 router.post('/login',function(req,res){
     if(req.body.email&&req.body.password){
