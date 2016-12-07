@@ -1,0 +1,22 @@
+extends ../layout
+block link
+    link(rel='stylesheet', href='/css/admin.css')
+block content
+    h1= title
+    hr
+    p That's a simple application using Express.
+    div(class="container-fluid")
+        div(class="row")
+            div(class="col-md-8")
+                form(role="form" method="post" action="/admin/article/#{article.id}?_method=PUT")
+                    div(class="form-group")
+                        input(name="name" type="text" class="form-control" placeholder="文章标题" value="#{article.name}" disabled="disabled")
+                    a(href="#") #Img#
+                    div(class="form-group")
+                        textarea(name="brief" class="form-control fp" rows="4" placeholder="简介") #{article.brief}
+                    div(class="form-group")
+                        textarea(id="area" name="content" class="form-control fp" rows="10" placeholder="内容") #{article.content}
+                    button(type="submit" class="btn btn-info") 更新
+block script
+    script(type="text/javascript" src="/js/jquery-2.1.4.min.js")
+    script(type="text/javascript" src="/js/script.js")
