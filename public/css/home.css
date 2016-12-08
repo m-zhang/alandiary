@@ -2,6 +2,7 @@ body {
   background: url("/images/temp/bg_grey.png") repeat;
 }
 .wrap {
+  width: 1200px;
   background-color: #fff;
   padding-bottom: 120px;
 }
@@ -19,12 +20,18 @@ body {
   padding: 3em;
 }
 /*默认pc 显示10*/
-.img-gallery {
-  padding-left: 0px;
-}
 .img-gallery li {
   float: left;
   list-style: none;
+  width: 20%;
+}
+.img-gallery li a {
+  display: block;
+}
+.img-gallery li a img {
+  width: 100%;
+  display: block;
+  max-height: 100px;
 }
 .my-label {
   text-align: center;
