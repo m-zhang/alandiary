@@ -20,6 +20,9 @@ var ComponentLib = {
     now:function(){
         var d=new Date();
         return d.getFullYear()+"-"+ (parseInt(d.getMonth()+1)>=10?parseInt(d.getMonth()+1):"0"+parseInt(d.getMonth()+1))+"-"+d.getDate();
+    },
+    config:{
+        imgUrl:"http://oht39vaz1.bkt.clouddn.com/"
     }
 }
 

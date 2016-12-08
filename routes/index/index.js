@@ -23,7 +23,7 @@ router.get('/', function(req, res, next) {
         if(err){
             console.log(err);
         }else{
-            res.render('index', { title: 'Express',articles:results.getArticles,md:md});
+            res.render('index', { title: 'Express',articles:results.getArticles,md:md,imgUrl:component.config.imgUrl});
         }
     });
 });
