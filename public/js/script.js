@@ -24,17 +24,12 @@ window.onload=function(){
 (function($){
     $.fn.justifyGallery=function(opts){
         var dfs={
-            initCss:{
+            colCount:5,
+            space:2
 
-            }
-        },params= $.extend({},dfs,opts),_target=$(this);
-        console.log(11111111);
-        console.log($(this).width());
-        this.init=function(){
-
-        }
+        },params= $.extend({},dfs,opts),_target=$(this),t=$(this).width(),l=_target.find("li").length;
         return this.each(function(){
-            console.log(_target);
+
         });
     }
 })(jQuery);
@@ -43,7 +38,7 @@ $(function(){
         map: 'cn_mill_en',
         backgroundColor:"#9bc4d6"
     });
-    $('.img-gallery').justifyGallery();
+    //$('.img-gallery').justifyGallery();
     //$('.gallery').justifyGallery({
     //    'maxRowHeight': '100px',
     //    'spacing': 2,
