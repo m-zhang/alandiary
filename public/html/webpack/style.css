@@ -1,0 +1,11 @@
+body{
+    background-color:#dfdfdf;
+}
+#block-1,#block-2{
+    background-color:#ffffff;
+    min-height: 100px;
+    padding:20px;
+}
+.mb20{
+    margin-bottom:20px;
+}
