@@ -3,3 +3,50 @@
   color: #20B2AA;
   margin-bottom: 20px;
 }
+.ad-tpl {
+  padding: 0 50px;
+}
+.admin-header {
+  margin-bottom: 20px;
+}
+.admin-header dt {
+  height: 88px;
+  border-bottom: 1px solid #B2B1B1;
+}
+.admin-header dt h1 {
+  float: left;
+  line-height: 88px;
+}
+.admin-header dt .user-info {
+  padding: 22px 0;
+}
+.admin-header dt .user-info li {
+  font-size: 14px;
+  font-weight: normal;
+  text-align: right;
+  line-height: 44px;
+}
+.admin-header dt .user-info li a {
+  margin-left: 10px;
+}
+.admin-header dd {
+  height: 44px;
+}
+.admin-header dd .tab-navigator li {
+  float: left;
+}
+.admin-header dd .tab-navigator li a {
+  display: block;
+  line-height: 44px;
+  padding: 0 12px;
+}
+.ad-tpl label {
+  font-weight: normal;
+  font-size: 1.6rem;
+}
+.modal-dialog {
+  z-index: 101102;
+}
+.ml10 {
+  margin-left: 10px !important;
+}

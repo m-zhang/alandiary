@@ -1,5 +1,5 @@
 body {
-  background: url("/images/temp/bg_grey.png") repeat;
+  background: url("http://oht39vaz1.bkt.clouddn.com/img/bg/bg_grey.png") repeat;
 }
 .wrap {
   width: 1200px;
@@ -128,4 +128,28 @@ body {
 /*内容页面css 样式*/
 .content-wrap {
   padding-top: 120px;
+  background-color: #fff;
+}
+.content-wrap .ar-list {
+  padding-bottom: 100px;
+}
+.content-wrap .ar-list dl {
+  padding: 20px 0;
+  border-bottom: 1px dashed #eeeeee;
+}
+.content-wrap .ar-list dl dt {
+  margin-bottom: 10px;
+}
+.content-wrap .ar-list dl dt a {
+  display: block;
+  font-size: 16px;
+  margin-bottom: 6px;
+}
+.content-wrap .ar-list dl dt p {
+  color: #cccccc;
+  font-weight: normal;
+  font-size: 13px;
+}
+.content-wrap .ar-list dl dt p span {
+  margin-left: 10px;
 }

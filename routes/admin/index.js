@@ -24,22 +24,29 @@ var upload=multer({ storage:storage });
 var User=mongoose.model('users');
 var File=mongoose.model('files');
 var Article=mongoose.model('articles');
+var Label=mongoose.model('labels');
 /* GET home page. */
-router.get('/', function(req, res, next) {
+router.get('/', function(req, res) {
     //获取 当前用户
     async.series({
         getCurUser:function(callback){
-            if(req.session.curMail){
-                User.findOne({email:req.session.curMail},function(err,user){
-                   if(err){
-                       console.log(err);
-                   }else{
-                       callback(null,user);
-                   }
-                });
-            }else{
-                res.redirect("/login");
-            }
+            getCurUser(req,res,function(err,user){
+                if(err){
+                    return;
+                }
+                callback(null,user);
+            });
+            //if(req.session.curMail){
+            //    User.findOne({email:req.session.curMail},function(err,user){
+            //       if(err){
+            //           console.log(err);
+            //       }else{
+            //           callback(null,user);
+            //       }
+            //    });
+            //}else{
+            //    res.redirect("/login");
+            //}
         },
         getArticles:function(callback){
             Article.find({},function(err,articles){
@@ -51,7 +58,7 @@ router.get('/', function(req, res, next) {
         if(err){
             console.log(err);
         }else{
-            res.render('admin/index', { title: '写文章',user:results.getCurUser,articles:results.getArticles});
+            res.render('admin/index', { title: '后台管理',user:results.getCurUser,articles:results.getArticles});
         }
     });
 });
@@ -84,22 +91,50 @@ router.post('/upload',function(req,res){
         res.redirect('/admin/upload');
     });
 });
+router.get('/article',function(req,res){
+    async.series({
+        getCurUser:function(callback){
+            getCurUser(req,res,function(err,user){
+                if(err){
+                    return;
+                }
+                callback(null,user);
+            });
+        },
+        getArticles:function(callback){
+            Article.find({},function(err,articles){
+                callback(null,articles);
+            });
+        },
+        getLabels:function(callback){
+            Label.find(function(err,labels){
+                callback(null,labels);
+            });
+        }
+    },function(err,results){
+        if(err){
+            console.log(err);
+        }else{
+            res.render('admin/article', { title: '文章管理',user:results.getCurUser,articles:results.getArticles,labels:results.getLabels});
+        }
+    });
+
+
+});
 router.post('/article/add',function(req,res){
     var params={
         name:req.body.name,
         user:req.body.user,
         brief:req.body.brief,
         content:req.body.content,
+        label:req.body.label||"",
         date:commonLib.now()
     }
-    Article.create(params,function(err){
-        if(err){
-            console.log(err);
-        }else{
-            var docs = Array.prototype.slice.call(arguments, 1);
-            console.log(docs);
-            res.redirect('/admin');
-        }
+    async.waterfall([
+        async.apply(creatNewArticle, params),
+        updateLabel
+    ], function (err, result) {
+        res.end(result);
     });
 });
 router.delete('/article/:id',function(req,res){
@@ -110,7 +145,7 @@ router.delete('/article/:id',function(req,res){
         if(err){
             console.log(err);
         }else{
-            res.redirect("/admin");
+            res.redirect("/admin/article");
         }
     });
 });
@@ -144,4 +179,64 @@ router.put('/article/:id',function(req,res){
     });
 });
 
+// 新建 分类
+router.post('/addLabel',function(req,res){
+    var params={
+        name:req.body.label,
+        articles:req.body.article||[],
+        subCategory:req.body.subCategory||[]
+    }
+    Label.create(params,function(err){
+        if(err){
+            //console.log(err);
+            res.render('error', {
+                message: err.message,
+                error: err
+            });
+        }else{
+            var docs = Array.prototype.slice.call(arguments, 1);
+            console.log(docs);
+            res.redirect('/admin/article');
+        }
+    });
+});
+// 获取当前用户
+function getCurUser(req,res,callback){
+    if(req.session.curMail){
+        User.findOne({email:req.session.curMail},callback);
+    }else{
+        res.redirect("/login");
+    }
+}
+// 获取文章
+function creatNewArticle(arg,callback){
+    Article.create(arg,function(err,article){
+        if(err){
+            console.log(err);
+        }else{
+            //ar docs = Array.prototype.slice.call(arguments, 1);
+            callback(null,article);
+        }
+    });
+}
+
+function updateLabel(arg,callback){
+    Label.findById(arg.label,function(err,label){
+        label.articles.push(arg.id);
+        label.save(function(err,label){
+            //console.log(label);
+            if(err){
+                console.log(err);
+                return;
+            }
+            console.log(label);
+            callback(null,"ok");
+        });
+    });
+    //Label.findByIdAndUpdate(arg.label,{$set:{articles:[arg.id]}},function(err,label){
+    //    console.log(label);
+    //    callback(null,"ok");
+    //});
+
+}
 module.exports = router;

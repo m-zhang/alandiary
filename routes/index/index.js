@@ -6,6 +6,7 @@ var component=require('../../common');
 var md = require('marked');
 var User=mongoose.model('users');
 var Article=mongoose.model('articles');
+var Label=mongoose.model('labels');
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
@@ -27,6 +28,37 @@ router.get('/', function(req, res, next) {
         }
     });
 });
+router.get('/tech', function(req, res, next) {
+    //Label.find({name:"技术宅"},function(err,label){
+    //    res.json(label);
+    //});
+    Label.find({name:"技术宅"}).populate({
+        path:"articles",
+        model:Article,
+        populate: {
+            path: 'user',
+            model: User
+        }
+    }).exec(function(err,docs){
+        res.render("index-origin",{title:"技术分享",c:docs,md:md});
+    });
+});
+router.get('/design', function(req, res, next) {
+    //Label.find({name:"技术宅"},function(err,label){
+    //    res.json(label);
+    //});
+    Label.find({name:"技术宅"}).populate({
+        path:"articles",
+        model:Article,
+        populate: {
+            path: 'user',
+            model: User
+        }
+    }).exec(function(err,docs){
+        res.render("index-origin",{title:"设计分享",c:docs,md:md});
+    });
+});
+
 router.get('/article/:id', function(req, res, next) {
     Article.findOne({_id:req.params.id},function(err,article){
         res.render("article",{article:article,md:md});
@@ -60,6 +92,38 @@ router.post('/login',function(req,res){
         res.redirect("/login");
     }
 });
+// 测试api
+
+router.get('/getArticles', function(req, res, next) {
+    //Label.find({name:"技术宅"},function(err,label){
+    //    res.json(label);
+    //});
+    Article.find(function(err,articles){
+        res.json(articles.map(function(item){return item.id}));
+    });
+
+});
+
+//router.get('/async-until', function(req, res, next) {
+//    var count = 0;
+//
+//    async.during(
+//        function (callback) {
+//            //console.log(1);
+//            return callback(null, count < 5);
+//        },
+//        function (callback) {
+//            console.log(count);
+//            count++;
+//            setTimeout(callback, 1000);
+//        },
+//        function (err) {
+//            // 5 seconds have passed
+//            console.log(10);
+//        }
+//    );
+//});
+
 
 router.get('/logout',component.logout);
 

@@ -5,12 +5,11 @@
 
 var ComponentLib = {
     verifyUser: function (req, res, next) {
-        next();
-        //if(req.session.loggedIn){
-        //    next();
-        //}else{
-        //    res.redirect('/login');
-        //}
+        if(req.session.loggedIn){
+            next();
+        }else{
+            res.redirect('/login');
+        }
     },
     logout: function (req, res, next) {
         req.session.loggedIn = false;
