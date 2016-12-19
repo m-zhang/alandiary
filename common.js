@@ -4,6 +4,9 @@
  */
 
 var ComponentLib = {
+    config:{
+        imgUrl:"http://oht39vaz1.bkt.clouddn.com/"
+    },
     verifyUser: function (req, res, next) {
         if(req.session.loggedIn){
             next();
@@ -20,9 +23,14 @@ var ComponentLib = {
         var d=new Date();
         return d.getFullYear()+"-"+ (parseInt(d.getMonth()+1)>=10?parseInt(d.getMonth()+1):"0"+parseInt(d.getMonth()+1))+"-"+d.getDate();
     },
-    config:{
-        imgUrl:"http://oht39vaz1.bkt.clouddn.com/"
+    getCurUser:function(req,res,model,callback){
+        if(req.session.curMail){
+            model.findOne({email:req.session.curMail},callback);
+        }else{
+            res.redirect("/login");
+        }
     }
+
 }
 
 module.exports = ComponentLib;

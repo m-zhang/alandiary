@@ -1,13 +1,10 @@
+@import "init.less";
 .tp-lead{
   font-size:18px;
   color:#20B2AA;
   margin-bottom:20px;
 }
-.ad-tpl{
-  padding:0 50px;
-}
 .admin-header{
-  margin-bottom:20px;
   dt{
     height:88px;
     border-bottom:1px solid #B2B1B1;
@@ -48,11 +45,30 @@
     font-size:1.6rem;
   }
 }
+.wrap-tpl{
+  width:1200px;
+  margin:auto;
+  .brumb{
+    padding-left:12px;
+    margin-bottom:12px;
+    dt{
+      float:left;
+    }
+    dd{
+      float:right;
+      margin-left:20px;
+      span{
+        margin-right:10px;
+      }
+    }
+  }
+}
 // bootstrap
+.table>tbody>tr>td, .table>tbody>tr>th, .table>tfoot>tr>td, .table>tfoot>tr>th, .table>thead>tr>td, .table>thead>tr>th{
+  vertical-align: middle;
+}
 .modal-dialog{
   z-index:101102;
 }
-// 调整盒模型 间距像素
-.ml10{
-  margin-left:10px !important;
-}
+
+

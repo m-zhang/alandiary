@@ -1,3 +1,28 @@
+.ml10 {
+  margin-left: 10px !important;
+}
+.z-row {
+  display: -webkit-flex;
+  /* Safari */
+  display: flex;
+  flex-direction: row;
+}
+.l60 {
+  width: 60% !important;
+  margin: 0px 12px;
+}
+.l40 {
+  width: 40% !important;
+  margin: 0 12px;
+}
+.l80 {
+  width: 80% !important;
+  margin: 0px 12px;
+}
+.l20 {
+  width: 20% !important;
+  margin: 0 12px;
+}
 body {
   background: url("http://oht39vaz1.bkt.clouddn.com/img/bg/bg_grey.png") repeat;
 }

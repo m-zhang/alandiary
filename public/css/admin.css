@@ -1,12 +1,31 @@
+.ml10 {
+  margin-left: 10px !important;
+}
+.z-row {
+  display: -webkit-flex;
+  /* Safari */
+  display: flex;
+  flex-direction: row;
+}
+.l60 {
+  width: 60% !important;
+  margin: 0px 12px;
+}
+.l40 {
+  width: 40% !important;
+  margin: 0 12px;
+}
+.l80 {
+  width: 80% !important;
+  margin: 0px 12px;
+}
+.l20 {
+  width: 20% !important;
+  margin: 0 12px;
+}
 .tp-lead {
   font-size: 18px;
   color: #20B2AA;
-  margin-bottom: 20px;
-}
-.ad-tpl {
-  padding: 0 50px;
-}
-.admin-header {
   margin-bottom: 20px;
 }
 .admin-header dt {
@@ -44,9 +63,32 @@
   font-weight: normal;
   font-size: 1.6rem;
 }
+.wrap-tpl {
+  width: 1200px;
+  margin: auto;
+}
+.wrap-tpl .brumb {
+  padding-left: 12px;
+  margin-bottom: 12px;
+}
+.wrap-tpl .brumb dt {
+  float: left;
+}
+.wrap-tpl .brumb dd {
+  float: right;
+  margin-left: 20px;
+}
+.wrap-tpl .brumb dd span {
+  margin-right: 10px;
+}
+.table > tbody > tr > td,
+.table > tbody > tr > th,
+.table > tfoot > tr > td,
+.table > tfoot > tr > th,
+.table > thead > tr > td,
+.table > thead > tr > th {
+  vertical-align: middle;
+}
 .modal-dialog {
   z-index: 101102;
-}
-.ml10 {
-  margin-left: 10px !important;
 }
