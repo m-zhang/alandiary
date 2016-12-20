@@ -8,7 +8,7 @@ block content
     div(class="container-fluid")
         div(class="row")
             div(class="col-md-8")
-                form(role="form" method="post" action="/admin/article/#{article.id}?_method=PUT")
+                form(role="form" method="post" action="/admin/article/edit/#{article.id}?_method=PUT")
                     div(class="form-group")
                         input(name="name" type="text" class="form-control" placeholder="文章标题" value="#{article.name}" disabled="disabled")
                     a(href="#") #Img#
