@@ -1,0 +1,19 @@
+extends layout
+block link
+    link(rel='stylesheet', href='/css/home.css')
+block content
+
+  div(class="container content-wrap")
+      div(class="ar-header")
+          h1= title
+          hr
+      article(class="ar-list")
+          each val,index in c
+              each article,i in val.articles
+                  dl
+                      dt
+                        a(href="/article/#{article.id}") #{article.name}
+                        p #{article.user.name}
+                            span #{article.date}
+                      dd!=md(article.brief)
+
