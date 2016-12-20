@@ -1,0 +1,75 @@
+extends ./layout
+block link
+    link(rel='stylesheet', href='/css/admin.css')
+block admin-header
+    dl(class="brumb clearfix")
+        dt
+            span 当前位置：列表
+        dd
+            span 可操作
+            a(href="/admin/article/add") 新建文章
+block content
+    div(class="main-content")
+        div(class="z-row")
+            div(class="l60")
+                form(role="form" method="post" action="/admin/article/add")
+                    input(type="hidden" name="user" value="#{user.id}")
+                    div(class="form-group")
+                        input(name="name" type="text" class="form-control" placeholder="文章标题")
+
+                    div(class="form-group")
+                        label(class="control-label") 分类标签
+                            a(href="##" class="ml10" data-toggle="modal" data-target="#myModal") 新增
+                        select(class="form-control" name="label")
+                            each val,index in labels
+                                option(value="#{val.id}") #{val.name}
+                    a(href="#") #Img#
+                    div(class="form-group")
+                        textarea(name="brief" class="form-control fp" rows="4" placeholder="简介")
+                    div(class="form-group")
+                        textarea(name="content" class="form-control fp" rows="10" placeholder="内容")
+                    button(type="submit" class="btn btn-info") 发布
+            div(class="l40")
+                | <p class="tp-lead">wiki 地址 ：https://zh.wikipedia.org/wiki/Markdown#.E5.9B.BE.E7.89.87 </br></p>
+                | <div class="md-template">
+                | <p>图片 ：![Foo](https://zh.wikipedia.org/static/images/project-logos/zhwiki.png) </br></p>
+                | <p>强调：</br></p>
+                | <p>*强调* 或者 _强调_  (示例：斜体) & **加重强调** 或者 __加重强调__ </br></p>
+                | <p>引用 </br></p>
+                | <p>引用只需要在被引用的内容段落开头加上右尖括号('>')即可。你可以选择只在开头加一个。也可以在每行前面都加一个，效果是一样的。</br></p>
+                | <p>引用可以嵌套。如果要在一个引用里插入一个引用，可以用两个('>')开头。依此类推，根据嵌套层次加相应数量的符号。</br></p>
+                | <p>> 这是一个引用。这是第一行</br></p>
+                | <p>这是第二行。</br></p>
+                | <p>>> 这是一个嵌套的引用。这是第一行。</br></p>
+                | <p>这是第二行</br></p>
+                | <p>></br></p>
+                | <p>> 外层引用的第三行。前面需要一个视觉上的空行表示内层嵌套的结束，空行前面的('>')可以有可以没有。</br></p>
+                | <p>链接</br></p>
+                | <p>[链接文字](链接地址) 例子： [Markdown](http://zh.wikipedia.com/wiki/Markdown)</br></p>
+                | <p>水平分区线</br></p>
+                | <p>要生成水平分区线，可以在单独一行里输入3个或以上的短横线、星号或者下划线实现。短横线和星号之间可以输入任意空格。以下每一行都产生一条水平分区线。</br></p>
+                | <p>* * *</br></p>
+                | <p>***</br></p>
+                | <p>*****</br></br></p>
+                | <p>- - -</br></p>
+                | <p>---------------------------------------</br></p>
+                | </div>
+    div(class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true")
+        div(class="modal-dialog")
+            form(class="form-horizontal" role="form" action="/admin/addLabel" method="post")
+                div(class="modal-content")
+                    div(class="modal-header")
+                        button(type="button" class="close" data-dismiss="modal")
+                            span(aria-hidden="true") &times;
+                            span(class="sr-only") Close
+                        h4(class="modal-title" id="myModalLabel")  新增文章分类
+                    div(class="modal-body")
+                        div(class="form-group")
+                            div(class="col-sm-12")
+                                input(name="label" class="form-control" id="inputLable" placeholder="Label")
+                    div(class="modal-footer")
+                        button(ype="button" class="btn btn-default" data-dismiss="modal") Close
+                        button(type="submit" class="btn btn-primary") 保存
+
+block script
+    script(src="http://cdn.bootcss.com/bootstrap/3.3.0/js/bootstrap.min.js")

@@ -1,0 +1,36 @@
+doctype html
+html
+  head
+    title= title
+    meta(charset="utf-8")
+    meta(http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1")
+    meta(name="renderer" content="webkit")
+    meta(name="viewport" content="width=device-width, initial-scale=1")
+    link(rel='stylesheet', href='/css/bootstrap3.3.4.min.css')
+    link(rel='stylesheet', href='/css/style.css')
+    block link
+  body
+      div(class="wrap-tpl")
+            div(class="ad-tpl")
+                dl(class="admin-header")
+                    dt(class="clearfix")
+                        h1= title
+                        ul(class="user-info")
+                            li 当前用户：#{user.name}
+                                a(href='/logout') logout
+                    dd
+                        ul(class="tab-navigator clearfix")
+                            li
+                                a(href="/admin") General View
+                            li
+                                a(href="/admin/article") 文章管理
+                            li
+                                a(href="/admin/user") 用户管理
+                            li
+                                a(href="/admin/tpl") 模板管理
+                            li
+                                a(href="/admin/private") 资料/备注
+            block admin-header
+            block content
+  script(type="text/javascript" src="/js/jquery-2.1.4.min.js")
+  block script
