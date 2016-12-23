@@ -6,7 +6,7 @@ var async=require('async');
 var commonLib=require("../../common");
 
 
-var Category=mongoose.model('labels');
+var Category=mongoose.model('categorys');
 var User=mongoose.model('users');
 var Article=mongoose.model('articles');
 
@@ -26,15 +26,15 @@ router.get('/',function(req,res){
             });
         },
         getCategorys:function(callback){
-            Category.find(function(err,labels){
-                callback(null,labels);
+            Category.find(function(err,categorys){
+                callback(null,categorys);
             });
         }
     },function(err,results){
         if(err){
             console.log(err);
         }else{
-            res.render('admin/article', { title: '文章管理',user:results.getCurUser,articles:results.getArticles,labels:results.getCategorys});
+            res.render('admin/article', { title: '文章管理',user:results.getCurUser,articles:results.getArticles,categorys:results.getCategorys});
         }
     });
 
@@ -52,15 +52,15 @@ router.get('/add',function(req,res){
             });
         },
         getCategorys:function(callback){
-            Category.find(function(err,labels){
-                callback(null,labels);
+            Category.find(function(err,categorys){
+                callback(null,categorys);
             });
         }
     },function(err,results){
         if(err){
             console.log(err);
         }else{
-            res.render('admin/article-add', { title: '文章管理',user:results.getCurUser,labels:results.getCategorys});
+            res.render('admin/article-add', { title: '文章管理',user:results.getCurUser,categorys:results.getCategorys});
         }
     });
 });
@@ -70,12 +70,12 @@ router.post('/add',function(req,res){
         user:req.body.user,
         brief:req.body.brief,
         content:req.body.content,
-        label:req.body.label||"",
+        category:req.body.category||"",
         date:commonLib.now()
     }
     async.waterfall([
         async.apply(creatNewArticle, params),
-        updateLabel
+        updatecategory
     ], function (err, result) {
         res.redirect("/admin/article");
     });
@@ -133,11 +133,11 @@ function creatNewArticle(arg,callback){
     });
 }
 
-function updateLabel(arg,callback){
-    Category.findById(arg.label,function(err,category){
+function updatecategory(arg,callback){
+    Category.findById(arg.category,function(err,category){
         category.articles.push(arg.id);
-        category.save(function(err,label){
-            //console.log(label);
+        category.save(function(err,category){
+            //console.log(category);
             if(err){
                 console.log(err);
                 return;

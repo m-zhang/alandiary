@@ -6,7 +6,7 @@ var component=require('../../common');
 var md = require('marked');
 var User=mongoose.model('users');
 var Article=mongoose.model('articles');
-var Label=mongoose.model('labels');
+var Category=mongoose.model('categorys');
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
@@ -29,10 +29,10 @@ router.get('/', function(req, res, next) {
     });
 });
 router.get('/tech', function(req, res, next) {
-    //Label.find({name:"技术宅"},function(err,label){
-    //    res.json(label);
+    //Category.find({name:"技术宅"},function(err,category){
+    //    res.json(category);
     //});
-    Label.find({name:"技术宅"}).populate({
+    Category.find({name:"技术宅"}).populate({
         path:"articles",
         model:Article,
         populate: {
@@ -44,10 +44,10 @@ router.get('/tech', function(req, res, next) {
     });
 });
 router.get('/design', function(req, res, next) {
-    //Label.find({name:"技术宅"},function(err,label){
-    //    res.json(label);
+    //Category.find({name:"技术宅"},function(err,category){
+    //    res.json(category);
     //});
-    Label.find({name:"技术宅"}).populate({
+    Category.find({name:"技术宅"}).populate({
         path:"articles",
         model:Article,
         populate: {
@@ -95,8 +95,8 @@ router.post('/login',function(req,res){
 // 测试api
 
 router.get('/getArticles', function(req, res, next) {
-    //Label.find({name:"技术宅"},function(err,label){
-    //    res.json(label);
+    //Category.find({name:"技术宅"},function(err,category){
+    //    res.json(category);
     //});
     Article.find(function(err,articles){
         res.json(articles.map(function(item){return item.id}));

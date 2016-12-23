@@ -1,3 +1,68 @@
+@charset "utf8";
+/*表单边框颜色及分割线、布局边框*/
+body,
+div,
+dl,
+dt,
+dd,
+ul,
+ol,
+li,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+pre,
+form,
+fieldset,
+input,
+textarea,
+p,
+blockquote,
+th,
+td {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+body {
+  font-family: "Microsoft YaHei", "微软雅黑", "Lucida Grande", Helvetica, sans-serif, "Open Sans", Arial, "Hiragino Sans GB", "STHeiti", "WenQuanYi Micro Hei", SimSun;
+  color: #333;
+  font-size: 14px;
+}
+label {
+  display: block;
+  margin-bottom: 10px;
+}
+input,
+textarea {
+  border: 0;
+  font-size: 14px;
+  padding: 4px 10px;
+}
+textarea {
+  line-height: 24px;
+}
+.relative {
+  position: relative;
+}
+.fl {
+  float: left;
+}
+.fr {
+  float: right;
+}
+.clearfix::before,
+.clearfix::after {
+  content: "";
+  display: table;
+  line-height: 0;
+}
+.clearfix::after {
+  clear: both;
+}
 .ml10 {
   margin-left: 10px !important;
 }
@@ -22,6 +87,10 @@
 .l20 {
   width: 20% !important;
   margin: 0 12px;
+}
+/*表单通用样式设置*/
+.co-inp {
+  border: 1px solid #dddddd;
 }
 body {
   background: url("http://oht39vaz1.bkt.clouddn.com/img/bg/bg_grey.png") repeat;
@@ -160,7 +229,7 @@ body {
 }
 .content-wrap .ar-list dl {
   padding: 20px 0;
-  border-bottom: 1px dashed #eeeeee;
+  border-bottom: 1px dashed #dddddd;
 }
 .content-wrap .ar-list dl dt {
   margin-bottom: 10px;

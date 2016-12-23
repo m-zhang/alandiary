@@ -7,7 +7,7 @@
 .admin-header{
   dt{
     height:88px;
-    border-bottom:1px solid #B2B1B1;
+    border-bottom:1px solid @borderColor;
     h1{
       float:left;
       line-height: 88px;
@@ -58,6 +58,15 @@
       float:right;
       margin-left:20px;
       span{
+        margin-right:10px;
+      }
+    }
+  }
+  .fl-list{
+    li{
+      &>div{
+        line-height: 24px;
+        float:left;
         margin-right:10px;
       }
     }

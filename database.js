@@ -20,18 +20,20 @@ var Article=new Schema({
     brief:String,
     content:String,
     date:String,
-    label:{type: Schema.Types.ObjectId, ref: 'labels'}
+    label:{type: Schema.Types.ObjectId, ref: 'categorys'}
 });
 
-var Label=new Schema({
+var Category=new Schema({
     name:{type:String,unique:true},
+    leaf:{type:Number,default:0},
+    date:{type:Date,default:Date.now},
     articles:[{ type: Schema.Types.ObjectId, ref: 'articles'}],
-    subCategory:[{ type: Schema.Types.ObjectId, ref: 'labels'}]
+    subCategory:[{ type: Schema.Types.ObjectId, ref: 'categorys'}]
 });
 mongoose.model('files',File);
 mongoose.model('users',User);
 mongoose.model('articles',Article);
-mongoose.model('labels',Label);
+mongoose.model('categorys',Category);
 var options = {
     user: 'zhangming',
     pass: 'XIAmi08@'

@@ -6,7 +6,7 @@ var commonLib=require("../../common");
 //var userRoute=require("./user");
 var articleRoute=require("./article");
 //var uploadRoute=require("./upload");
-//var categoryRoute=require("./category");
+var categoryRoute=require("./category");
 
 var router = express.Router();
 
@@ -21,7 +21,7 @@ router.use("/article",articleRoute);
 // router.use("/upload",uploadRoute);
 
 //文章分类管理
-//router.use("/category",categoryRoute);
+router.use("/category",categoryRoute);
 
 
 //var Article=mongoose.model('articles');

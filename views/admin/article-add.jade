@@ -1,6 +1,4 @@
 extends ./layout
-block link
-    link(rel='stylesheet', href='/css/admin.css')
 block admin-header
     dl(class="brumb clearfix")
         dt
@@ -18,10 +16,8 @@ block content
                         input(name="name" type="text" class="form-control" placeholder="文章标题")
 
                     div(class="form-group")
-                        label(class="control-label") 分类标签
-                            a(href="##" class="ml10" data-toggle="modal" data-target="#myModal") 新增
                         select(class="form-control" name="label")
-                            each val,index in labels
+                            each val,index in categorys
                                 option(value="#{val.id}") #{val.name}
                     a(href="#") #Img#
                     div(class="form-group")
@@ -54,22 +50,3 @@ block content
                 | <p>- - -</br></p>
                 | <p>---------------------------------------</br></p>
                 | </div>
-    div(class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true")
-        div(class="modal-dialog")
-            form(class="form-horizontal" role="form" action="/admin/addLabel" method="post")
-                div(class="modal-content")
-                    div(class="modal-header")
-                        button(type="button" class="close" data-dismiss="modal")
-                            span(aria-hidden="true") &times;
-                            span(class="sr-only") Close
-                        h4(class="modal-title" id="myModalLabel")  新增文章分类
-                    div(class="modal-body")
-                        div(class="form-group")
-                            div(class="col-sm-12")
-                                input(name="label" class="form-control" id="inputLable" placeholder="Label")
-                    div(class="modal-footer")
-                        button(ype="button" class="btn btn-default" data-dismiss="modal") Close
-                        button(type="submit" class="btn btn-primary") 保存
-
-block script
-    script(src="http://cdn.bootcss.com/bootstrap/3.3.0/js/bootstrap.min.js")
