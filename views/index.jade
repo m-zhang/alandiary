@@ -13,6 +13,10 @@ block content
                   div(class="simple-block")
                       img(src="#{imgUrl}010.jpg" class="img-circle")
                       h2 Alan
+              ul(class="navigator")
+                  each c, index in categorys
+                      li
+                          a(href="/category/#{c.id}") #{c.name}
       section(class="travel-light")
           div(class="separate-line")
               div

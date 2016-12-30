@@ -126,6 +126,7 @@ function creatNewArticle(arg,callback){
     Article.create(arg,function(err,article){
         if(err){
             console.log(err);
+
         }else{
             //ar docs = Array.prototype.slice.call(arguments, 1);
             callback(null,article);
@@ -136,13 +137,12 @@ function creatNewArticle(arg,callback){
 function updatecategory(arg,callback){
     Category.findById(arg.category,function(err,category){
         category.articles.push(arg.id);
-        category.save(function(err,category){
+        category.save(function(err,doc){
             //console.log(category);
             if(err){
                 console.log(err);
                 return;
             }
-            console.log(category);
             callback(null,"ok");
         });
     });

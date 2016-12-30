@@ -5,15 +5,23 @@ block content
 
   div(class="container content-wrap")
       div(class="ar-header")
-          h1= title
+          h1= c.name
           hr
       article(class="ar-list")
-          each val,index in c
+          each article,i in c.articles
+              dl
+                  dt
+                      a(href="/article/#{article.id}") #{article.name}
+                      p #{article.user.name}
+                          span #{article.date}
+                  dd!=md(article.brief)
+          each val,index in c.subCategory
               each article,i in val.articles
                   dl
                       dt
-                        a(href="/article/#{article.id}") #{article.name}
-                        p #{article.user.name}
-                            span #{article.date}
+                          a(href="/article/#{article.id}") #{article.name}
+                          p #{article.user.name}
+                              span #{article.date}
                       dd!=md(article.brief)
+
 

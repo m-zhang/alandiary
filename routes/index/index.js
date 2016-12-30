@@ -19,28 +19,57 @@ router.get('/', function(req, res, next) {
             }).exec(function(err,docs){
                 callback(null,docs);
             });
+        },
+        getCategorys:function(callback){
+            Category.find({leaf:0}).sort({"date":1}).populate({
+                path:"subCategory",
+                model:Category
+            }).exec(function(err,docs){
+                callback(null,docs);
+            });
         }
     },function(err,results){
         if(err){
             console.log(err);
         }else{
-            res.render('index', { title: 'Express',articles:results.getArticles,md:md,imgUrl:component.config.imgUrl});
+            res.render('index', {
+                title: 'Express',
+                articles:results.getArticles,
+                md:md,
+                imgUrl:component.config.imgUrl,
+                categorys:results.getCategorys
+            });
         }
     });
 });
-router.get('/tech', function(req, res, next) {
+router.get('/category/:id', function(req, res, next) {
     //Category.find({name:"技术宅"},function(err,category){
     //    res.json(category);
     //});
-    Category.find({name:"技术宅"}).populate({
-        path:"articles",
-        model:Article,
-        populate: {
-            path: 'user',
-            model: User
-        }
+    Category.findById(req.params.id)
+        .populate({
+            path:"articles",
+            model:Article,
+            populate: {
+                path: 'user',
+                model: User
+            }
+        })
+        .populate({
+            path:"subCategory",
+            model:Category,
+            populate:{
+                path:"articles",
+                model:Article,
+                populate: {
+                    path: 'user',
+                    model: User
+                }
+            }
     }).exec(function(err,docs){
-        res.render("index-origin",{title:"技术分享",c:docs,md:md});
+        console.log(docs);
+        //res.json(docs);
+        res.render("index-origin",{c:docs,md:md});
     });
 });
 router.get('/design', function(req, res, next) {
