@@ -73,11 +73,13 @@ router.post('/add',function(req,res){
         category:req.body.category||"",
         date:commonLib.now()
     }
+    //res.end(req.body.name);
     async.waterfall([
         async.apply(creatNewArticle, params),
         updatecategory
     ], function (err, result) {
-        res.redirect("/admin/article");
+        res.end("插入成功咯");
+       // res.redirect("/admin/article/add");
     });
 });
 //----------------end------------------

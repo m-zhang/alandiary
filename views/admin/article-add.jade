@@ -1,4 +1,6 @@
 extends ./layout
+block link
+    link(rel='stylesheet', href='/bower_components/editor.md/css/editormd.css')
 block admin-header
     dl(class="brumb clearfix")
         dt
@@ -8,45 +10,17 @@ block admin-header
             a(href="/admin/article/add") 新建文章
 block content
     div(class="main-content")
-        div(class="z-row")
-            div(class="l60")
-                form(role="form" method="post" action="/admin/article/add")
-                    input(type="hidden" name="user" value="#{user.id}")
-                    div(class="form-group")
-                        input(name="name" type="text" class="form-control" placeholder="文章标题")
-
-                    div(class="form-group")
-                        select(class="form-control" name="category")
-                            each val,index in categorys
-                                option(value="#{val.id}") #{val.name}
-                    a(href="#") #Img#
-                    div(class="form-group")
-                        textarea(name="brief" class="form-control fp" rows="4" placeholder="简介")
-                    div(class="form-group")
-                        textarea(name="content" class="form-control fp" rows="10" placeholder="内容")
-                    button(type="submit" class="btn btn-info") 发布
-            div(class="l40")
-                | <p class="tp-lead">wiki 地址 ：https://zh.wikipedia.org/wiki/Markdown#.E5.9B.BE.E7.89.87 </br></p>
-                | <div class="md-template">
-                | <p>图片 ：![Foo](https://zh.wikipedia.org/static/images/project-logos/zhwiki.png) </br></p>
-                | <p>强调：</br></p>
-                | <p>*强调* 或者 _强调_  (示例：斜体) & **加重强调** 或者 __加重强调__ </br></p>
-                | <p>引用 </br></p>
-                | <p>引用只需要在被引用的内容段落开头加上右尖括号('>')即可。你可以选择只在开头加一个。也可以在每行前面都加一个，效果是一样的。</br></p>
-                | <p>引用可以嵌套。如果要在一个引用里插入一个引用，可以用两个('>')开头。依此类推，根据嵌套层次加相应数量的符号。</br></p>
-                | <p>> 这是一个引用。这是第一行</br></p>
-                | <p>这是第二行。</br></p>
-                | <p>>> 这是一个嵌套的引用。这是第一行。</br></p>
-                | <p>这是第二行</br></p>
-                | <p>></br></p>
-                | <p>> 外层引用的第三行。前面需要一个视觉上的空行表示内层嵌套的结束，空行前面的('>')可以有可以没有。</br></p>
-                | <p>链接</br></p>
-                | <p>[链接文字](链接地址) 例子： [Markdown](http://zh.wikipedia.com/wiki/Markdown)</br></p>
-                | <p>水平分区线</br></p>
-                | <p>要生成水平分区线，可以在单独一行里输入3个或以上的短横线、星号或者下划线实现。短横线和星号之间可以输入任意空格。以下每一行都产生一条水平分区线。</br></p>
-                | <p>* * *</br></p>
-                | <p>***</br></p>
-                | <p>*****</br></br></p>
-                | <p>- - -</br></p>
-                | <p>---------------------------------------</br></p>
-                | </div>
+        form(role="form" class="arform")
+            input(type="hidden" name="user" value="#{user.id}")
+            div(class="form-group")
+                input(name="name" type="text" class="form-control" placeholder="文章标题")
+            div(class="form-group")
+                select(class="form-control" name="category")
+                    each val,index in categorys
+                        option(value="#{val.id}") #{val.name}
+            div(class="form-group")
+                div(id="test-editormd")
+            button(id="adt-btn" type="button" class="btn btn-lg btn-info") 发布
+block script
+    script(type="text/javascript" src="../../bower_components/editor.md/src/editormd.js")
+    script(type="text/javascript" src="/js/module/admin.min.js")

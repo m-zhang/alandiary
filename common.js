@@ -8,6 +8,7 @@ var ComponentLib = {
         imgUrl:"http://oht39vaz1.bkt.clouddn.com/"
     },
     verifyUser: function (req, res, next) {
+
         if(req.session.loggedIn){
             next();
         }else{

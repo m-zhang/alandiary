@@ -21,18 +21,6 @@ window.onload=function(){
         }
     });
 }*/
-(function($){
-    $.fn.justifyGallery=function(opts){
-        var dfs={
-            colCount:5,
-            space:2
-
-        },params= $.extend({},dfs,opts),_target=$(this),t=$(this).width(),l=_target.find("li").length;
-        return this.each(function(){
-
-        });
-    }
-})(jQuery);
 $(function(){
     if($('#world-map').length>0){
         $('#world-map').vectorMap({

@@ -1,6 +1,7 @@
 extends layout
 block link
     link(rel='stylesheet', href='/css/home.css')
+    link(rel='stylesheet', href='/css/tx3-tag-cloud.css')
     link(rel='stylesheet', href='/js/jvector/jquery-jvectormap-2.0.2.css')
 
 block content
@@ -17,10 +18,11 @@ block content
                   each c, index in categorys
                       li
                           a(href="/category/#{c.id}") #{c.name}
+
       section(class="travel-light")
           div(class="separate-line")
               div
-              span(class="label-text") 旅行，寻找自我的一种方式
+              span(class="label-text") 旅行日记
           div(class="img-gallery")
               ul(class="clearfix")
                   li
@@ -89,6 +91,11 @@ block content
                       div(class="active")
                       div
                       div
+      section(class="index-tech clearfix" style="background-color:#f3f5f6")
+          ul(id="tagcloud")
+              each val,index in techLabel
+                  li(data-weight="#{val.weight}")
+                      a(href="##") #{val.label}
       section(class="my-label-block")
           div(class="separate-line")
               div
@@ -157,5 +164,6 @@ block content
 block script
     script(type="text/javascript" src="/js/jvector/jquery-jvectormap-2.0.2.min.js")
     script(type="text/javascript" src="/js/jvector/jquery-jvectormap-cn-mill-en.js")
-    script(type="text/javascript" src="/js/script.js")
+    script(type="text/javascript" src="/js/jquery.tx3-tag-cloud.js")
+    script(type="text/javascript" src="/js/home.js")
 

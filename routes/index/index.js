@@ -37,7 +37,18 @@ router.get('/', function(req, res, next) {
                 articles:results.getArticles,
                 md:md,
                 imgUrl:component.config.imgUrl,
-                categorys:results.getCategorys
+                categorys:results.getCategorys,
+                techLabel:[
+                    {label:"HTML",weight:"20"},
+                    {label:"React",weight:"14"},
+                    {label:"Gulp",weight:"22"},
+                    {label:"Webpack",weight:"20"},
+                    {label:"Express",weight:"16"},
+                    {label:"Angular2.0",weight:"30"},
+                    {label:"Css3",weight:"14"},
+                    {label:"异步编程",weight:"30"},
+                    {label:"Animation",weight:"18"}
+                ]
             });
         }
     });
@@ -67,7 +78,7 @@ router.get('/category/:id', function(req, res, next) {
                 }
             }
     }).exec(function(err,docs){
-        console.log(docs);
+        //console.log(docs);
         //res.json(docs);
         res.render("index-origin",{c:docs,md:md});
     });
@@ -122,7 +133,6 @@ router.post('/login',function(req,res){
     }
 });
 // 测试api
-
 router.get('/getArticles', function(req, res, next) {
     //Category.find({name:"技术宅"},function(err,category){
     //    res.json(category);
@@ -133,6 +143,10 @@ router.get('/getArticles', function(req, res, next) {
 
 });
 
+// 关于我
+router.get('/about', function(req, res, next) {
+    res.render("about",{title:"关于我"});
+});
 //router.get('/async-until', function(req, res, next) {
 //    var count = 0;
 //
