@@ -40,5 +40,5 @@ var options = {
 }
 //mongoose.connect(uri, options);
 // 部署线上地址
-//mongoose.connect('mongodb://@ds119728.mlab.com:19728/my-diary',options);
-mongoose.connect('mongodb://localhost/ad-db');
+mongoose.connect('mongodb://@ds119728.mlab.com:19728/my-diary',options);
+//mongoose.connect('mongodb://localhost/ad-db');
