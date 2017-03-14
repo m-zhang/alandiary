@@ -1,6 +1,6 @@
 {
   "name": "alandiary",
   "dependencies": {
-   
+    "editor.md": "^1.5.0"
   }
 }
