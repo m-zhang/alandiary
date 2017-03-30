@@ -20,7 +20,8 @@ block content
                     select(id="fl-category" class="form-control" name="leaf0" style="margin-right:20px;width:25%;")
                         each val,index in categorys
                             option(value="#{val.id}") #{val.name}
-                    
+                    select(id="s-val" class="form-control" name="category" style="margin-right:20px;width:25%;")
+                        option(value="#{categorys[0].subCategory[0].id}") #{categorys[0].subCategory[0].name}
             div(class="form-group")
                 div(id="test-editormd")
             button(id="adt-btn" type="button" class="btn btn-lg btn-info") 发布
