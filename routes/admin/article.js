@@ -123,7 +123,7 @@ router.get('/edit/:id',function(req,res){
         if(err){
             console.log(err);
         }else{
-            res.render('admin/article-edit-new', { title: '文章编辑',user:results.getCurUser,article:results.getArticles});
+            res.render('admin/article-edit', { title: '文章编辑',user:results.getCurUser,article:results.getArticles});
         }
     });
 
