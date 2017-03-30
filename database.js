@@ -6,7 +6,7 @@ var User=new Schema({
     password:String,
     email:{type:String,unique:true},
     role:String,//管理员、普通用户
-    date:String
+    date:{type:Date,default:Date.now} //注册时间
 });
 
 var File=new Schema({
@@ -19,12 +19,14 @@ var Article=new Schema({
     user:{ type: Schema.Types.ObjectId, ref: 'users'},
     brief:String,
     content:String,
-    date:String,
+    draft:String,
+    date:{type:Date,default:Date.now},
+    cinfo:String,
     category:{type: Schema.Types.ObjectId, ref: 'categorys'}
 });
 
 var Category=new Schema({
-    name:{type:String,unique:true},
+    name:String,
     leaf:{type:Number,default:0},
     date:{type:Date,default:Date.now},
     articles:[{ type: Schema.Types.ObjectId, ref: 'articles'}],

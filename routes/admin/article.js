@@ -52,8 +52,11 @@ router.get('/add',function(req,res){
             });
         },
         getCategorys:function(callback){
-            Category.find(function(err,categorys){
-                callback(null,categorys);
+            Category.find({leaf:0}).populate({
+                path:"subCategory",
+                model:Category
+            }).exec(function(err,docs){
+                callback(null,docs);
             });
         }
     },function(err,results){
@@ -70,9 +73,12 @@ router.post('/add',function(req,res){
         user:req.body.user,
         brief:req.body.brief,
         content:req.body.content,
+        draft:req.body.draft,
+        cinfo:req.body.cinfo,
         category:req.body.category||"",
-        date:commonLib.now()
+        date:new Date()
     }
+    console.log(params.cinfo);
     //res.end(req.body.name);
     async.waterfall([
         async.apply(creatNewArticle, params),
@@ -99,12 +105,33 @@ router.get('/edit/:id',function(req,res){
     var params={
         "_id":req.params.id
     };
+    async.series({
+        getCurUser:function(callback){
+            commonLib.getCurUser(req,res,User,function(err,user){
+                if(err){
+                    return;
+                }
+                callback(null,user);
+            });
+        },
+        getArticles:function(callback){
+            Article.findOne(params,function(err,article){
+                callback(null,article);
+            });
+        }
+    },function(err,results){
+        if(err){
+            console.log(err);
+        }else{
+            res.render('admin/article-edit-new', { title: '文章编辑',user:results.getCurUser,article:results.getArticles});
+        }
+    });
+
     Article.findOne(params,function(err,article){
         if(err){
             console.log(err);
         }else{
             console.log(article);
-            res.render("admin/article-edit",{article:article});
         }
 
     });
@@ -115,12 +142,12 @@ router.get('/edit/:id',function(req,res){
 router.put('/edit/:id',function(req,res){
     var params={
         "_id":req.params.id
-    },update={brief:req.body.brief,content:req.body.content},options={new:true};
+    },update={name:req.body.name,brief:req.body.brief,content:req.body.content,draft:req.body.draft},options={new:true};
     Article.findOneAndUpdate(params,update,options,function(err,article) {
         if(err){
             console.log(err);
         }else{
-            res.redirect("/admin/article");
+            res.json({"state":"ok"});
         }
     });
 });

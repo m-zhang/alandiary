@@ -4,6 +4,7 @@ var router=express.Router();
 var async=require('async');
 var commonLib=require("../../common");
 var Category=mongoose.model('categorys');
+var Article=mongoose.model('articles');
 var User=mongoose.model('users');
 router.get('/',function(req,res){
     async.series({
@@ -31,7 +32,7 @@ router.post('/add',function(req,res){
         articles:[],
         subCategory:[]
         }
-    Category.create(params,function(err){
+    Category.create(params,function(err,c){
         if(err){
             //console.log(err);
             res.render('error', {
@@ -51,7 +52,19 @@ router.post('/add',function(req,res){
                     });
                 });
             }else{
-                res.redirect('/admin/category');
+                // 如果创建的是父级节点，则默认给个分类
+                var c2=new Category({
+                    name:"默认分类",
+                    leaf:1,
+                    articles:[],
+                    subCategory:[]
+                }).save(function(err,doc){
+                        Category.update({"_id":c._id},{$set:{subCategory:[doc._id]}},function(err,d){
+                            res.redirect('/admin/category');
+                        });
+                    });
+
+
             }
 
         }
@@ -73,7 +86,12 @@ router.delete('/delete/:id',function(req,res){
                         if(err){
                             console.log("cuocuocuo");
                         }else{
-                            res.redirect("/admin/category");
+                            Article.remove({"category":{$in:category.subCategory}},function(err,articles){
+                                console.log("删除该分类下子类所有文章");
+                                console.log(articles);
+                                res.redirect("/admin/category");
+                            });
+                            //
                         }
                     });
                 }
@@ -81,7 +99,17 @@ router.delete('/delete/:id',function(req,res){
             }else{
                 //res.redirect("/admin/category");
                 Category.update({"_id":req.body.pid},{"$pull":{"subCategory":req.params.id}},function(err,d2){
-                    res.redirect("/admin/category");
+                    if(err){
+                        console.log("更新子类报错");
+                    }else{
+                        Article.remove({"category":req.params.id},function(err,articles){
+                            console.log("删除该分类下所有文章");
+                            console.log(articles);
+                            res.redirect("/admin/category");
+                        });
+                    }
+
+
                 });
             }
 

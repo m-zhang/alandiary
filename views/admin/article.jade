@@ -7,7 +7,7 @@ block admin-header
             span 可操作
             a(href="/admin/article/add") 新建文章
 block content
-    div(class="main-content")
+    div(class="main-content" data-page="article-list")
         div(class="z-row")
             div(class="l80")
                 table(class="table table-striped")
@@ -22,11 +22,11 @@ block content
                             td #{val.name}
                             td #{val.date}
                             td
-                                a(href="/admin/article/edit/#{val.id}" target="_blank") Edit
+                                a(href="/admin/article/edit/#{val.id}") Edit
                             td
-                                form( method="post" action="/admin/article/delete/#{val.id}?_method=DELETE" )
-                                    button(type="submit" class="btn btn-default") Delete
+                                a(id="btn-del" href="javascript:;" data-action="/admin/article/delete/#{val.id}?_method=DELETE") Delete
             div(class="l20")
                 img(src="/uploads/1481617323814.jpg" alt="" style="width:100%;")
 block script
     script(src="http://cdn.bootcss.com/bootstrap/3.3.0/js/bootstrap.min.js")
+    script(src="/js/module/admin.min.js")

@@ -57,48 +57,34 @@ router.get('/category/:id', function(req, res, next) {
     //Category.find({name:"技术宅"},function(err,category){
     //    res.json(category);
     //});
-    Category.findById(req.params.id)
-        .populate({
-            path:"articles",
-            model:Article,
-            populate: {
-                path: 'user',
-                model: User
-            }
-        })
-        .populate({
-            path:"subCategory",
-            model:Category,
-            populate:{
-                path:"articles",
-                model:Article,
-                populate: {
-                    path: 'user',
-                    model: User
-                }
-            }
-    }).exec(function(err,docs){
-        //console.log(docs);
-        //res.json(docs);
-        res.render("index-origin",{c:docs,md:md});
-    });
-});
-router.get('/design', function(req, res, next) {
-    //Category.find({name:"技术宅"},function(err,category){
-    //    res.json(category);
-    //});
-    Category.find({name:"技术宅"}).populate({
-        path:"articles",
-        model:Article,
-        populate: {
+    //排序 存在问题，用文章检索
+    Category.findById(req.params.id,function(err,doc){
+        Article.find({category:{$in:doc.subCategory}}).sort({date:-1}).populate({
             path: 'user',
             model: User
-        }
-    }).exec(function(err,docs){
-        res.render("index-origin",{title:"设计分享",c:docs,md:md});
+        }).exec(function(err,ds){
+            res.render("index-origin",{cname:doc.name,art:ds,md:md});
+        });
     });
+    //Category.findById(req.params.id)
+    //    .populate({
+    //        path:"subCategory",
+    //        model:Category,
+    //        populate:{
+    //            path:"articles",
+    //            model:Article,
+    //            options:{limit:5, sort: { date: 1 }},
+    //            populate: {
+    //                path: 'user',
+    //                model: User
+    //            }
+    //        }
+    //}).exec(function(err,docs){
+    //    //console.log(docs);
+    //    //res.json(docs);
+    //    res.render("index-origin",{c:docs,md:md});
+    //});
 });
-
 router.get('/article/:id', function(req, res, next) {
     Article.findOne({_id:req.params.id},function(err,article){
         res.render("article",{article:article,md:md});
@@ -144,7 +130,7 @@ router.get('/getArticles', function(req, res, next) {
 });
 
 // 关于我
-router.get('/about', function(req, res, next) {
+router.get('/about/alan', function(req, res, next) {
     res.render("about",{title:"关于我"});
 });
 //router.get('/async-until', function(req, res, next) {
