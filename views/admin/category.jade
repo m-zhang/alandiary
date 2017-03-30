@@ -1,0 +1,73 @@
+extends ./layout
+block admin-header
+    dl(class="brumb clearfix")
+        dt
+            span 当前位置：分类列表
+        dd
+            span 可操作
+            a(href="javascript:;" data-toggle="modal" data-target="#myModal") 新建分类
+block content
+    div(class="main-content" data-page="category")
+        div(class="z-row")
+            div(class="l60")
+                table(class="table table-striped")
+                    tr
+                        th 序号
+                        th 标签
+                    each category,index in categorys
+                        tr
+                            td #{index+1}
+                            td
+                                ul(class="fl-list")
+                                    li(class="clearfix")
+                                        div
+                                            span #{category.name}
+                                            a(href="javascript:;" class="crd-btn" data-leaf="0" data-oid="#{category.id}" data-toggle="modal" data-target="#confirm-delete") 删除
+                                            a(href="javascript:;" class="cr-btn" data-leaf="1" data-pid="#{category.id}" data-toggle="modal" data-target="#myModal") 新建子类
+                                        if(category.subCategory.length)
+                                            li(class="clearfix")
+                                                each c2,i2 in category.subCategory
+                                                    div
+                                                    if(c2.name !="默认分类")
+                                                        span #{c2.name}
+                                                        a(href="javascript:;" class="crd-btn" data-leaf="1" data-oid="#{c2.id}" data-pid="#{category.id}" data-toggle="modal" data-target="#confirm-delete") 删除
+            div(class="l40")
+                img(src="/uploads/1481617323814.jpg" alt="" style="width:100%;")
+    div(class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel1" aria-hidden="true")
+        div(class="modal-dialog")
+            form(class="form-horizontal" role="form" action="/admin/category/add" method="post")
+                div(class="modal-content")
+                    div(class="modal-header")
+                        button(type="button" class="close" data-dismiss="modal")
+                            span(aria-hidden="true") &times;
+                            span(class="sr-only") Close
+                        h4(class="modal-title" id="myModalLabel1") 新增分类
+                    div(class="modal-body")
+                        div(class="form-group")
+                            div(class="col-sm-12")
+                                input(name="name" class="form-control" id="inputLable" placeholder="")
+                    div(class="modal-footer")
+                        input(id="leaf1" name="leaf" type="hidden" value="0")
+                        input(id="pid1" name="pid" type="hidden" value="0")
+                        button(type="reset" class="btn btn-default " data-dismiss="modal") 关闭
+                        button(type="submit" class="btn btn-primary") 保存
+    div(class="modal fade" id="confirm-delete" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true")
+        div(class="modal-dialog")
+            form(class="form-horizontal" role="form" method="post")
+                div(class="modal-content")
+                    div(class="modal-header")
+                        button(type="button" class="close" data-dismiss="modal")
+                            span(aria-hidden="true") &times;
+                            span(class="sr-only") Close
+                        h4(class="modal-title" id="myModalLabel") 确认
+                    div(class="modal-body")
+                        div(class="form-group")
+                            div(class="col-sm-12") 是否要删除该分类以及该分类下的所有子类？
+                    div(class="modal-footer")
+                        input(id="leaf2" name="leaf" type="hidden" value="0")
+                        input(id="pid2" name="pid" type="hidden")
+                        button(type="reset" class="btn btn-default " data-dismiss="modal") 否
+                        button(type="submit" class="btn btn-primary") 是
+block script
+    script(src="/js/bootstrap-3.3.0.min.js")
+    script(src="/js/module/admin.min.js")
