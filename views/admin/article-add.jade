@@ -12,19 +12,7 @@ block content
     div(class="main-content" data-page="newAA")
         form(role="form" class="arform")
             input(type="hidden" name="user" value="#{user.id}")
-            div(class="form-group")
-                input(name="name" type="text" class="form-control" placeholder="文章标题")
-            div(class="form-group")
-                div(id="hcd" style="display:none" data-category=categorys)
-                div(style="display: inline-flex;width:100%;")
-                    select(id="fl-category" class="form-control" name="leaf0" style="margin-right:20px;width:25%;")
-                        each val,index in categorys
-                            option(value="#{val.id}") #{val.name}
-                    select(id="s-val" class="form-control" name="category" style="margin-right:20px;width:25%;")
-                        option(value="#{categorys[0].subCategory[0].id}") #{categorys[0].subCategory[0].name}
-            div(class="form-group")
-                div(id="test-editormd")
-            button(id="adt-btn" type="button" class="btn btn-lg btn-info") 发布
+            
 block script
     script(type="text/javascript" src="../../bower_components/editor.md/src/editormd.js")
     script(type="text/javascript" src="/js/module/admin.min.js")
