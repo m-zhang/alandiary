@@ -32,6 +32,13 @@ body {
   color: #333;
   font-size: 14px;
 }
+a {
+  color: #4acaa8;
+}
+a:hover {
+  text-decoration: none;
+  color: #05ad80;
+}
 label {
   display: block;
   margin-bottom: 10px;
@@ -54,13 +61,21 @@ textarea {
 .fr {
   float: right;
 }
-.clearfix::before,
-.clearfix::after {
-  content: "";
-  display: table;
-  line-height: 0;
+.clearfix {
+  clear: both;
 }
-.clearfix::after {
+.clearfix:after {
+  content: "　";
+  display: block;
+  overflow: hidden;
+  height: 0;
+  clear: both;
+}
+.clearfix:before {
+  content: "　";
+  display: block;
+  height: 0;
+  overflow: hidden;
   clear: both;
 }
 .ml10 {
@@ -97,9 +112,12 @@ textarea {
   color: #20B2AA;
   margin-bottom: 20px;
 }
+.admin-header {
+  border-bottom: 1px solid #dddddd;
+  margin-bottom: 20px;
+}
 .admin-header dt {
   height: 88px;
-  border-bottom: 1px solid #dddddd;
 }
 .admin-header dt h1 {
   float: left;
@@ -138,7 +156,7 @@ textarea {
 }
 .wrap-tpl .brumb {
   padding-left: 12px;
-  margin-bottom: 12px;
+  margin-bottom: 20px;
 }
 .wrap-tpl .brumb dt {
   float: left;
