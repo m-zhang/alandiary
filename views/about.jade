@@ -1,0 +1,111 @@
+extends layout
+block link
+    link(rel='stylesheet', href='/css/about.css')
+    link(rel='stylesheet', href='/css/ie8.css')
+block content
+    section(id="header")
+        header
+            span(class="image avatar")
+                img(src="/images/temp/010.jpg" alt="")
+            h1(id="logo")
+                a(href="#") Alan Ming
+            p 虚怀若谷 大智若愚
+        nav(id="nav")
+            ul
+                li
+                    a(href="#one" class="active") 关于旅行
+                li
+                    a(href="#two") 码农技术栈
+                li
+                    a(href="#three") “2017” 小目标
+                li
+                    a(href="#four") 联系我
+        footer
+            ul(class="icons")
+                li
+                    a(href="#" class="icon fa-twitter")
+                        span(class="label") Twitter
+                li
+                    a(href="#" class="icon fa-instagram")
+                        span(class="label") Instagram
+                li
+                    a(href="#" class="icon fa-github")
+                        span(class="label") Github
+                li
+                    a(href="#" class="icon fa-envelope")
+                        span(class="label") Email
+    div(id="wrapper")
+        div(id="main")
+            section(id="one")
+                div(class="container")
+                    header(class="major")
+                        h2 关于旅行
+                        p ”有时会问自己 为什么会是我“，这是我喜欢旅行的原因<br />
+                    p 12年毕业，每年基本都会去两个地方，旅行成了我生活必不可少的一部分，路上的不期而遇，总会充满惊喜、期待。
+            section(id="two")
+                div(class="container")
+                    h3 码农技术栈
+                    p
+                    ul(class="feature-icons")
+                        li(class="fa-code") Less
+                        li(class="fa-cubes") Node
+                        li(class="fa-book") Mongodb
+                        li(class="fa-coffee") express
+                        li(class="fa-bolt") 前端自动化构建 Webpack、Gulp
+                        li(class="fa-users")
+            section(id="three")
+                div(class="container")
+                    h3 “2017” 小目标
+                    p 我还记得我刚毕业那会给自己设了个小目标说自己会在3年内赚够30万，但是 @#@##&&￥&#*%**……，你懂得 .3年后粗略的计算了下只有10w 不到，惭愧，哈哈
+                        | 17年 想自己多学点东西，让自己见识面更广一些 。暂时设定管理学书 3本、技术（不限前端类）3本
+                    div(class="features")
+                        article
+                            a(href="#" class="image")
+                                img(src="/images/temp/tupian-content02.jpg" alt="")
+                            div(class="inner")
+                                h4 Possibly broke spacetime
+                                p Integer eu ante ornare amet commetus vestibulum blandit integer in curae ac faucibus integer adipiscing ornare amet.
+                        article
+                            a(href="#" class="image")
+                                img(src="/images/temp/tupian-content02.jpg" alt="")
+                            div(class="inner")
+                                h4 Possibly broke spacetime
+                                p Integer eu ante ornare amet commetus vestibulum blandit integer in curae ac faucibus integer adipiscing ornare amet.
+                        article
+                            a(href="#" class="image")
+                                img(src="/images/temp/tupian-content02.jpg" alt="")
+                            div(class="inner")
+                                h4 Possibly broke spacetime
+                                p Integer eu ante ornare amet commetus vestibulum blandit integer in curae ac faucibus integer adipiscing ornare amet.
+            section(id="four")
+                div(class="container")
+                    h3 Contact Me
+                    p Integer eu ante ornare amet commetus vestibulum blandit integer in curae ac faucibus integer non. Adipiscing cubilia elementum integer. Integer eu ante ornare amet commetus.
+                    form(method="post" action="#")
+                        div(class="row uniform")
+                            div(class="6u 12u(xsmall)")
+                                input(type="text" name="name" id="name" placeholder="Name")
+                            div(class="6u 12u(xsmall)")
+                                input(type="email" name="email" id="email" placeholder="Email")
+                        div(class="row uniform")
+                            div(class="12u")
+                                input(type="text" name="subject" id="subject" placeholder="Subject")
+                        div(class="row uniform")
+                            div(class="12u")
+                                textarea(name="message" id="message" placeholder="Message" rows="6")
+                        div(class="row uniform")
+                            div(class="12u")
+                                ul(class="actions")
+                                    li
+                                        input(type="submit" class="special" value="Send Message")
+                                    li
+                                        input(type="reset" value="Reset Form")
+block script
+    script(type="text/javascript" src="/js/jquery.min.js")
+    script(type="text/javascript" src="/js/jquery.scrollzer.min.js")
+    script(type="text/javascript" src="/js/jquery.scrolly.min.js")
+    script(type="text/javascript" src="/js/skel.min.js")
+    script(type="text/javascript" src="/js/html5shiv.js")
+    script(type="text/javascript" src="/js/util.js")
+    script(type="text/javascript" src="/js/module/about.js")
+
