@@ -61,7 +61,7 @@ router.post('/add',function(req,res){
                 }).save(function(err,doc){
                         console.log(c.id);
                         console.log("--------------------------");
-                        console.log(doc.id);
+                        console.log(doc);
                         Category.update({"id":c.id},{$set:{subCategory:[doc.id]}},function(err,d){
                             res.redirect('/admin/category');
                         });
