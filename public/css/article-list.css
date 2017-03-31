@@ -1,28 +1,175 @@
+@charset "utf8";
+/*表单边框颜色及分割线、布局边框*/
+body,
+div,
+dl,
+dt,
+dd,
+ul,
+ol,
+li,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+pre,
+form,
+fieldset,
+input,
+textarea,
+p,
+blockquote,
+th,
+td {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+body {
+  font-family: "Microsoft YaHei", "微软雅黑", "Lucida Grande", Helvetica, sans-serif, "Open Sans", Arial, "Hiragino Sans GB", "STHeiti", "WenQuanYi Micro Hei", SimSun;
+  color: #333;
+  font-size: 14px;
+}
+body {
+  background: url("http://oht39vaz1.bkt.clouddn.com/img/bg/bg_grey.png") repeat;
+}
+a {
+  color: #4acaa8;
+}
+a:hover {
+  text-decoration: none;
+  color: #05ad80;
+}
+label {
+  display: block;
+  margin-bottom: 10px;
+}
+input,
+textarea {
+  border: 0;
+  font-size: 14px;
+  padding: 4px 10px;
+}
+textarea {
+  line-height: 24px;
+}
+.relative {
+  position: relative;
+}
+.fl {
+  float: left;
+}
+.fr {
+  float: right;
+}
+.clearfix {
+  clear: both;
+}
+.clearfix:after {
+  content: "　";
+  display: block;
+  overflow: hidden;
+  height: 0;
+  clear: both;
+}
+.clearfix:before {
+  content: "　";
+  display: block;
+  height: 0;
+  overflow: hidden;
+  clear: both;
+}
+.ml10 {
+  margin-left: 10px !important;
+}
+.z-row {
+  display: -webkit-flex;
+  /* Safari */
+  display: flex;
+  flex-direction: row;
+}
+.l60 {
+  width: 60% !important;
+  margin: 0px 12px;
+}
+.l40 {
+  width: 40% !important;
+  margin: 0 12px;
+}
+.l80 {
+  width: 80% !important;
+  margin: 0px 12px;
+}
+.l20 {
+  width: 20% !important;
+  margin: 0 12px;
+}
+/*表单通用样式设置*/
+.co-inp {
+  border: 1px solid #eeeeee;
+}
 body {
   padding-bottom: 100px;
 }
-.ar-list dl {
-  padding: 20px 10px;
-  margin-bottom: 20px;
-  background-color: #EDEDED;
-  font-weight: normal;
+/*内容页面css 样式*/
+.content-wrap {
+  padding-top: 120px;
+  background-color: #fff;
 }
-.ar-list dl dt {
-  font-weight: normal;
-  color: #575757;
+.content-wrap .ar-header {
+  border-bottom: 1px solid #eeeeee;
+}
+.content-wrap .ar-header h1 {
+  line-height: 60px;
+  padding-bottom: 30px;
+}
+.content-wrap .ar-list {
+  padding-bottom: 100px;
+}
+.content-wrap .ar-list dl {
+  padding: 30px 0;
+  border-bottom: 1px dashed #eeeeee;
+}
+.content-wrap .ar-list dl dt {
+  margin-bottom: 10px;
+}
+.content-wrap .ar-list dl dt a {
+  display: block;
   font-size: 16px;
+  margin-bottom: 6px;
 }
-.ar-list dl dt p {
-  font-size: 13px;
-  line-height: 30px;
+.content-wrap .ar-list dl dt p {
+  color: #cccccc;
+  font-weight: normal;
+  font-size: 12px;
 }
-.ar-list dl dt p span {
+.content-wrap .ar-list dl dt p span {
   margin-left: 10px;
 }
-.ar-list dl dd {
-  font-size: 14px;
+.content-wrap .ar-list dl dd p {
+  line-height: 28px;
+  font-size: 15px;
+  margin-bottom: 10px;
 }
-.ar-list dl dd img {
+.content-wrap .ar-list dl dd img {
   display: block;
-  max-height: 100px;
+  max-width: 100%;
+  margin-top: 6px;
+  margin-bottom: 6px;
+}
+.content-wrap .ar-content {
+  padding-top: 30px;
+  padding-bottom: 100px;
+}
+.content-wrap .ar-content p {
+  line-height: 28px;
+  font-size: 16px;
+  margin-bottom: 10px;
+}
+.content-wrap .ar-content img {
+  display: block;
+  max-width: 100%;
+  margin: 6px auto;
 }

@@ -32,6 +32,9 @@ body {
   color: #333;
   font-size: 14px;
 }
+body {
+  background: url("http://oht39vaz1.bkt.clouddn.com/img/bg/bg_grey.png") repeat;
+}
 a {
   color: #4acaa8;
 }
@@ -105,15 +108,19 @@ textarea {
 }
 /*表单通用样式设置*/
 .co-inp {
-  border: 1px solid #dddddd;
+  border: 1px solid #eeeeee;
 }
 .tp-lead {
   font-size: 18px;
   color: #20B2AA;
   margin-bottom: 20px;
 }
+html,
+body {
+  height: 100%;
+}
 .admin-header {
-  border-bottom: 1px solid #dddddd;
+  border-bottom: 1px solid #eeeeee;
   margin-bottom: 20px;
 }
 .admin-header dt {
@@ -153,6 +160,9 @@ textarea {
 .wrap-tpl {
   width: 1200px;
   margin: auto;
+  background-color: #ffffff;
+  padding: 0 20px;
+  height: 100%;
 }
 .wrap-tpl .brumb {
   padding-left: 12px;

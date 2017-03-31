@@ -33,22 +33,11 @@ router.get('/', function(req, res, next) {
             console.log(err);
         }else{
             res.render('index', {
-                title: 'Express',
+                title: '阿伦日记',
                 articles:results.getArticles,
                 md:md,
                 imgUrl:component.config.imgUrl,
-                categorys:results.getCategorys,
-                techLabel:[
-                    {label:"HTML",weight:"20"},
-                    {label:"React",weight:"14"},
-                    {label:"Gulp",weight:"22"},
-                    {label:"Webpack",weight:"20"},
-                    {label:"Express",weight:"16"},
-                    {label:"Angular2.0",weight:"30"},
-                    {label:"Css3",weight:"14"},
-                    {label:"异步编程",weight:"30"},
-                    {label:"Animation",weight:"18"}
-                ]
+                categorys:results.getCategorys
             });
         }
     });

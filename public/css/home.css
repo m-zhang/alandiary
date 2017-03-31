@@ -32,6 +32,9 @@ body {
   color: #333;
   font-size: 14px;
 }
+body {
+  background: url("http://oht39vaz1.bkt.clouddn.com/img/bg/bg_grey.png") repeat;
+}
 a {
   color: #4acaa8;
 }
@@ -105,10 +108,7 @@ textarea {
 }
 /*表单通用样式设置*/
 .co-inp {
-  border: 1px solid #dddddd;
-}
-body {
-  background: url("http://oht39vaz1.bkt.clouddn.com/img/bg/bg_grey.png") repeat;
+  border: 1px solid #eeeeee;
 }
 .wrap {
   width: 1200px;
@@ -276,32 +276,4 @@ body {
   font-size: 16px;
   line-height: 30px;
   padding: 20px;
-}
-/*内容页面css 样式*/
-.content-wrap {
-  padding-top: 120px;
-  background-color: #fff;
-}
-.content-wrap .ar-list {
-  padding-bottom: 100px;
-}
-.content-wrap .ar-list dl {
-  padding: 20px 0;
-  border-bottom: 1px dashed #dddddd;
-}
-.content-wrap .ar-list dl dt {
-  margin-bottom: 10px;
-}
-.content-wrap .ar-list dl dt a {
-  display: block;
-  font-size: 16px;
-  margin-bottom: 6px;
-}
-.content-wrap .ar-list dl dt p {
-  color: #cccccc;
-  font-weight: normal;
-  font-size: 13px;
-}
-.content-wrap .ar-list dl dt p span {
-  margin-left: 10px;
 }

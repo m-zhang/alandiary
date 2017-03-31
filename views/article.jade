@@ -1,8 +1,10 @@
 extends layout
 block link
+    link(rel='stylesheet', href='/bower_components/editor.md/css/editormd.css')
     link(rel='stylesheet', href='/css/article-list.css')
 block content
-  h1 #{article.name}
-  hr
-  article(class="ar-content")!=md(article.content)
+    div(class="container content-wrap")
+        div(class="ar-header")
+            h1 #{article.name}
+        article(class="ar-content")!=md(article.content)
 
