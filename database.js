@@ -20,7 +20,7 @@ var Article=new Schema({
     brief:String,
     content:String,
     draft:String,
-    date:{type:Date,default:Date.now},
+    date:{type:Date},
     cinfo:String,
     category:{type: Schema.Types.ObjectId, ref: 'categorys'}
 });
