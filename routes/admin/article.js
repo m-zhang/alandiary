@@ -79,6 +79,7 @@ router.post('/add',function(req,res){
         date:req.body.date
     }
     console.log(params.cinfo);
+    console.log(params.date);
     //res.end(req.body.name);
     async.waterfall([
         async.apply(creatNewArticle, params),
