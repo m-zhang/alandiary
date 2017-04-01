@@ -12,7 +12,7 @@ block content
                       dt
                           a(href="/article/#{article.id}") #{article.name}
                           p #{article.user.name}
-                              span #{new Date(article.date).getBJDate()}
+                              span #{article.date}
                       dd!=md(article.brief)
 
 

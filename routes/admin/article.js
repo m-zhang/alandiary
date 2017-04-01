@@ -76,7 +76,7 @@ router.post('/add',function(req,res){
         draft:req.body.draft,
         cinfo:req.body.cinfo,
         category:req.body.category||"",
-        date:new Date()
+        date:req.body.date
     }
     console.log(params.cinfo);
     //res.end(req.body.name);
