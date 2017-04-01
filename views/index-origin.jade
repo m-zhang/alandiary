@@ -12,7 +12,7 @@ block content
                       dt
                           a(href="/article/#{article.id}") #{article.name}
                           p #{article.user.name}
-                              span #{article.date.toLocaleString()}
+                              span #{article.date}
                       dd!=md(article.brief)
 
 

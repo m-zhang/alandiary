@@ -141,8 +141,6 @@ router.get('/about/alan', function(req, res, next) {
 //        }
 //    );
 //});
-
-
 router.get('/logout',component.logout);
 
 module.exports = router;
