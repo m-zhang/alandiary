@@ -311,3 +311,6 @@ textarea {
   line-height: 30px;
   padding: 20px;
 }
+.site-intro p.center {
+  text-align: center;
+}

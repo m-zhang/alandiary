@@ -6,5 +6,6 @@ block content
     div(class="container content-wrap")
         div(class="ar-header")
             h1 #{article.name}
-        article(class="ar-content")!=md(article.content)
+        div(class="ar-content")
+            article(class="editormd-preview-container")!=md(article.content)
 
