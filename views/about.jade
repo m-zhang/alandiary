@@ -1,111 +1,36 @@
 extends layout
 block link
+    meta(name="viewport" content="width=device-width, initial-scale=1")
     link(rel='stylesheet', href='/css/about.css')
-    link(rel='stylesheet', href='/css/ie8.css')
 block content
-    section(id="header")
-        header
-            span(class="image avatar")
-                img(src="/images/temp/010.jpg" alt="")
-            h1(id="logo")
-                a(href="#") Alan Ming
-            p 虚怀若谷 大智若愚
-        nav(id="nav")
-            ul
-                li
-                    a(href="#one" class="active") 关于旅行
-                li
-                    a(href="#two") 码农技术栈
-                li
-                    a(href="#three") “2017” 小目标
-                li
-                    a(href="#four") 联系我
-        footer
-            ul(class="icons")
-                li
-                    a(href="#" class="icon fa-twitter")
-                        span(class="label") Twitter
-                li
-                    a(href="#" class="icon fa-instagram")
-                        span(class="label") Instagram
-                li
-                    a(href="#" class="icon fa-github")
-                        span(class="label") Github
-                li
-                    a(href="#" class="icon fa-envelope")
-                        span(class="label") Email
-    div(id="wrapper")
-        div(id="main")
-            section(id="one")
-                div(class="container")
-                    header(class="major")
-                        h2 关于旅行
-                        p ”有时会问自己 为什么会是我“，这是我喜欢旅行的原因<br />
-                    p 12年毕业，每年基本都会去两个地方，旅行成了我生活必不可少的一部分，路上的不期而遇，总会充满惊喜、期待。
-            section(id="two")
-                div(class="container")
-                    h3 码农技术栈
-                    p
-                    ul(class="feature-icons")
-                        li(class="fa-code") Less
-                        li(class="fa-cubes") Node
-                        li(class="fa-book") Mongodb
-                        li(class="fa-coffee") express
-                        li(class="fa-bolt") 前端自动化构建 Webpack、Gulp
-                        li(class="fa-users")
-            section(id="three")
-                div(class="container")
-                    h3 “2017” 小目标
-                    p 我还记得我刚毕业那会给自己设了个小目标说自己会在3年内赚够30万，但是 @#@##&&￥&#*%**……，你懂得 .3年后粗略的计算了下只有10w 不到，惭愧，哈哈
-                        | 17年 想自己多学点东西，让自己见识面更广一些 。暂时设定管理学书 3本、技术（不限前端类）3本
-                    div(class="features")
-                        article
-                            a(href="#" class="image")
-                                img(src="/images/temp/tupian-content02.jpg" alt="")
-                            div(class="inner")
-                                h4 Possibly broke spacetime
-                                p Integer eu ante ornare amet commetus vestibulum blandit integer in curae ac faucibus integer adipiscing ornare amet.
-                        article
-                            a(href="#" class="image")
-                                img(src="/images/temp/tupian-content02.jpg" alt="")
-                            div(class="inner")
-                                h4 Possibly broke spacetime
-                                p Integer eu ante ornare amet commetus vestibulum blandit integer in curae ac faucibus integer adipiscing ornare amet.
-                        article
-                            a(href="#" class="image")
-                                img(src="/images/temp/tupian-content02.jpg" alt="")
-                            div(class="inner")
-                                h4 Possibly broke spacetime
-                                p Integer eu ante ornare amet commetus vestibulum blandit integer in curae ac faucibus integer adipiscing ornare amet.
-            section(id="four")
-                div(class="container")
-                    h3 Contact Me
-                    p Integer eu ante ornare amet commetus vestibulum blandit integer in curae ac faucibus integer non. Adipiscing cubilia elementum integer. Integer eu ante ornare amet commetus.
-                    form(method="post" action="#")
-                        div(class="row uniform")
-                            div(class="6u 12u(xsmall)")
-                                input(type="text" name="name" id="name" placeholder="Name")
-                            div(class="6u 12u(xsmall)")
-                                input(type="email" name="email" id="email" placeholder="Email")
-                        div(class="row uniform")
-                            div(class="12u")
-                                input(type="text" name="subject" id="subject" placeholder="Subject")
-                        div(class="row uniform")
-                            div(class="12u")
-                                textarea(name="message" id="message" placeholder="Message" rows="6")
-                        div(class="row uniform")
-                            div(class="12u")
-                                ul(class="actions")
-                                    li
-                                        input(type="submit" class="special" value="Send Message")
-                                    li
-                                        input(type="reset" value="Reset Form")
-block script
-    script(type="text/javascript" src="/js/jquery.min.js")
-    script(type="text/javascript" src="/js/jquery.scrollzer.min.js")
-    script(type="text/javascript" src="/js/jquery.scrolly.min.js")
-    script(type="text/javascript" src="/js/skel.min.js")
-    script(type="text/javascript" src="/js/html5shiv.js")
-    script(type="text/javascript" src="/js/util.js")
-    script(type="text/javascript" src="/js/module/about.js")
-
+    header(class="main-banner")
+        img(class="b-img" src="http://oht39vaz1.bkt.clouddn.com/img/travel/xiamen/img_2713_2.jpg")
+    div(class="w max-wrap-1200")
+        div(class="simple-block")
+            img(src="http://oht39vaz1.bkt.clouddn.com/img/avator/alan.jpg" class="av-img img-circle")
+            h2 Alan
+            p 是时候说点认真的事了
+        div(class="my-content")
+            div(class="bb")
+                div(class="separate-line txt-left")
+                    div
+                    span(class="label-text")  技术栈篇
+                div(class="cc")
+                    p 唠叨两句：想了下这些年自己都用到了哪些技术，大三的时候就开始培训实习Java，那时还不知道啥是前端，培训大概半年多的时间，后留在那实习，有接触过PHP、Object-c，12年毕业
+                        | 结果被分配到了前端部门，从此踏上了“不归路”，很庆幸，是自己真的喜欢，有件事印象很深，就是刚开始学习JS编代码用的记事本（老师要求），好像有两三个月的样子，现在想起来都会有点发触。
+                    p HTML5，Css3，ES6，Less，Sass，Node，express，mongodb，Angular，grunt，gulp，webpack，记得刚开始用Jquery 的时候，Dojo也很火，好像也用过，就好像Angular这样子，两年前特别火，现在铺天盖地都是React、Vue的，
+                        | 现在前端的定义似乎更像是全栈，从前端到后端node
+                        | 在到移动应用app ，ReactNative，忽然感觉有种力不从心的赶脚，水太深，貌似现在不会React、Vue 这些就会被鄙视，有时感觉自己什么都会一点，又感觉不会的更多，前端的定义更宽泛，怎么选择技术选型，真是个头疼的问题
+            div(class="bb")
+                div(class="separate-line txt-left")
+                    div
+                    span(class="label-text")  2017 “小目标”
+                div(class="cc")
+                    p 博客基础功能改版及到厦门旅游已经完成了，向目标前进了一小步，博客后续会添加更多管理功能，包括网站基础管理（对数据统计），新增评论等
+                    dl
+                        dt 代办事项
+                        dd
+                            p 预计9月份为期五天的旅游（地点待定）
+                            p 管理学书（3本）、技术类（3本）不限前端
+                            p 至少两篇技术类博文/每月
+                            p 其他的暂时还没想到，对了，吉他尘灰已经快一年了，当时买了学了一个星期 @…………#……￥……￥&*）*）*！#@

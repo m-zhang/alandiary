@@ -122,6 +122,10 @@ router.get('/getArticles', function(req, res, next) {
 router.get('/about/alan', function(req, res, next) {
     res.render("about",{title:"关于我"});
 });
+// 简历
+router.get('/about/resume', function(req, res, next) {
+    res.render("resume",{title:"关于我"});
+});
 //router.get('/async-until', function(req, res, next) {
 //    var count = 0;
 //

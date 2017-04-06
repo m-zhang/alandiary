@@ -110,6 +110,36 @@ textarea {
 .co-inp {
   border: 1px solid #eeeeee;
 }
+/*分割线*/
+.separate-line {
+  position: relative;
+  margin-bottom: 10px;
+  text-align: center;
+}
+.separate-line.txt-left {
+  text-align: left;
+}
+.separate-line.txt-right {
+  text-align: right;
+}
+.separate-line.tl {
+  text-align: left;
+}
+.separate-line > div {
+  position: absolute;
+  width: 100%;
+  height: 1px;
+  background-color: #f1f1f1;
+  margin-top: 10px;
+}
+.separate-line .label-text {
+  position: relative;
+  padding: 0 40px;
+  background-color: #fff;
+  z-index: 2;
+  font-size: 16px;
+  color: #9cd3b3;
+}
 .wrap {
   width: 1200px;
   background-color: #fff;
@@ -191,7 +221,11 @@ textarea {
   margin-top: 30px;
 }
 .my-label span {
-  margin: 10px;
+  margin: 10px 10px 20px;
+  line-height: 50px;
+}
+.my-label span em {
+  font-size: 13px;
 }
 .my-label span:nth-child(odd) {
   font-size: 20px;
@@ -279,30 +313,6 @@ textarea {
 .group-block .caption h3 {
   margin-bottom: 4px;
 }
-/*common css share*/
-.separate-line {
-  position: relative;
-  margin-bottom: 10px;
-  text-align: center;
-}
-.separate-line.tl {
-  text-align: left;
-}
-.separate-line > div {
-  position: absolute;
-  width: 100%;
-  height: 1px;
-  background-color: #f1f1f1;
-  margin-top: 10px;
-}
-.separate-line .label-text {
-  position: relative;
-  padding: 0 40px;
-  background-color: #fff;
-  z-index: 2;
-  font-size: 16px;
-  color: #9cd3b3;
-}
 .b-grey {
   background-color: #f1f1f1;
 }
@@ -310,6 +320,9 @@ textarea {
   font-size: 16px;
   line-height: 30px;
   padding: 20px;
+}
+.site-intro p.intro {
+  color: #d7d7d7;
 }
 .site-intro p.center {
   text-align: center;
