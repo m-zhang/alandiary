@@ -197,8 +197,18 @@ body {
   padding: 0px;
 }
 .content-wrap .ar-content p {
-  line-height: 28px;
+  line-height: 30px;
   font-size: 16px;
+  margin-bottom: 10px;
+}
+.content-wrap .ar-content h3,
+.content-wrap .ar-content h4 {
+  line-height: 40px;
+  margin-bottom: 12px;
+  margin-top: 30px;
+  font-weight: bold;
+}
+.content-wrap .ar-content pre {
   margin-bottom: 10px;
 }
 .content-wrap .ar-content img {
